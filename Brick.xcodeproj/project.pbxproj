@@ -1,0 +1,592 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AC0D68E014E69B29006DC48D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0D68DF14E69B29006DC48D /* Security.framework */; };
+		AC0D68E314E69B2F006DC48D /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0D68E214E69B2F006DC48D /* ServiceManagement.framework */; };
+		AC1434FA14E698EF00406CEF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1434F914E698EF00406CEF /* Cocoa.framework */; };
+		AC95706414E6A0B600607575 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC95706314E6A0B600607575 /* Foundation.framework */; };
+		AC95707A14E6AD1700607575 /* com.funkensturm.BrickLayer in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC95706114E6A0B600607575 /* com.funkensturm.BrickLayer */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		C23F53AF1A7BE14200F32E2A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2CA14981A74F769006746DD /* SystemConfiguration.framework */; };
+		C23F53B01A7BE14500F32E2A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2CA14961A74F717006746DD /* CFNetwork.framework */; };
+		C242560E1A743D3C00CE573A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C242560C1A743D3C00CE573A /* main.m */; };
+		C24256111A743D6F00CE573A /* BrickController.m in Sources */ = {isa = PBXBuildFile; fileRef = C24256101A743D6F00CE573A /* BrickController.m */; };
+		C242561A1A743F4000CE573A /* BrickLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C24256181A743F4000CE573A /* BrickLayer.m */; };
+		C242561B1A743F4000CE573A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C24256191A743F4000CE573A /* main.m */; };
+		C25B390B1AB8BE2500E66AA5 /* BrickRules.m in Sources */ = {isa = PBXBuildFile; fileRef = C25B390A1AB8BE2500E66AA5 /* BrickRules.m */; };
+		C270ECF31A76D04300F132F7 /* BrickPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = C270ECF21A76D04300F132F7 /* BrickPreferences.m */; };
+		C2CA14851A744B5F006746DD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2CA14841A744B5F006746DD /* MainMenu.xib */; };
+		C2CA148F1A74DC86006746DD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2CA148E1A74DC86006746DD /* Images.xcassets */; };
+		C2CA14971A74F717006746DD /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2CA14961A74F717006746DD /* CFNetwork.framework */; };
+		C2CA14991A74F769006746DD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2CA14981A74F769006746DD /* SystemConfiguration.framework */; };
+		C2CA149C1A74F7DB006746DD /* BrickMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CA149B1A74F7DB006746DD /* BrickMenu.m */; };
+		C2CA14C51A751F0A006746DD /* BrickLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CA14C31A751F0A006746DD /* BrickLogger.m */; };
+		C2CA15101A75581B006746DD /* BrickIntercom.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CA150F1A75581B006746DD /* BrickIntercom.m */; };
+		C2D9363F1AB46A030020968B /* NSBundle+LoginItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D9363D1AB46A030020968B /* NSBundle+LoginItem.m */; };
+		C2D936401AB46A030020968B /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = C2D9363E1AB46A030020968B /* README.md */; };
+		C2D936441AB47D170020968B /* BrickPF.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D936431AB47D170020968B /* BrickPF.m */; };
+		C2D936471AB4855C0020968B /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2D936461AB4855C0020968B /* Defaults.plist */; };
+		C2D9364A1AB487210020968B /* BrickRule.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D936491AB487210020968B /* BrickRule.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AC95707714E6ACF800607575 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC1434EC14E698EE00406CEF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AC95706014E6A0B600607575;
+			remoteInfo = BrickLayer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AC95705F14E6A0B600607575 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		AC95707914E6AD0000607575 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LaunchServices;
+			dstSubfolderSpec = 1;
+			files = (
+				AC95707A14E6AD1700607575 /* com.funkensturm.BrickLayer in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		AC0D68DF14E69B29006DC48D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		AC0D68E214E69B2F006DC48D /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		AC1434F514E698EF00406CEF /* Brick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Brick.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC1434F914E698EF00406CEF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		AC95706114E6A0B600607575 /* com.funkensturm.BrickLayer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = com.funkensturm.BrickLayer; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC95706314E6A0B600607575 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C242560A1A743D3C00CE573A /* Brick-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Brick-Info.plist"; path = "Brick/Brick-Info.plist"; sourceTree = SOURCE_ROOT; };
+		C242560B1A743D3C00CE573A /* Brick-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Brick-Prefix.pch"; path = "Brick/Brick-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		C242560C1A743D3C00CE573A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Brick/main.m; sourceTree = SOURCE_ROOT; };
+		C242560F1A743D6F00CE573A /* BrickController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BrickController.h; path = Brick/Classes/BrickController.h; sourceTree = SOURCE_ROOT; };
+		C24256101A743D6F00CE573A /* BrickController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrickController.m; path = Brick/Classes/BrickController.m; sourceTree = SOURCE_ROOT; };
+		C24256131A743F4000CE573A /* BrickLayer-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BrickLayer-Info.plist"; sourceTree = "<group>"; };
+		C24256141A743F4000CE573A /* BrickLayer-Launchd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BrickLayer-Launchd.plist"; sourceTree = "<group>"; };
+		C24256151A743F4000CE573A /* BrickLayer-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BrickLayer-Prefix.pch"; sourceTree = "<group>"; };
+		C24256171A743F4000CE573A /* BrickLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrickLayer.h; sourceTree = "<group>"; };
+		C24256181A743F4000CE573A /* BrickLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrickLayer.m; sourceTree = "<group>"; };
+		C24256191A743F4000CE573A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C25B39091AB8BE2500E66AA5 /* BrickRules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BrickRules.h; path = Classes/BrickRules.h; sourceTree = "<group>"; };
+		C25B390A1AB8BE2500E66AA5 /* BrickRules.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrickRules.m; path = Classes/BrickRules.m; sourceTree = "<group>"; };
+		C270ECF11A76D04300F132F7 /* BrickPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BrickPreferences.h; path = Classes/BrickPreferences.h; sourceTree = "<group>"; };
+		C270ECF21A76D04300F132F7 /* BrickPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrickPreferences.m; path = Classes/BrickPreferences.m; sourceTree = "<group>"; };
+		C2CA14841A744B5F006746DD /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		C2CA148E1A74DC86006746DD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C2CA14961A74F717006746DD /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		C2CA14981A74F769006746DD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C2CA149A1A74F7DB006746DD /* BrickMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BrickMenu.h; path = Classes/BrickMenu.h; sourceTree = "<group>"; };
+		C2CA149B1A74F7DB006746DD /* BrickMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrickMenu.m; path = Classes/BrickMenu.m; sourceTree = "<group>"; };
+		C2CA14C21A751F0A006746DD /* BrickLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BrickLogger.h; path = Classes/BrickLogger.h; sourceTree = "<group>"; };
+		C2CA14C31A751F0A006746DD /* BrickLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrickLogger.m; path = Classes/BrickLogger.m; sourceTree = "<group>"; };
+		C2CA150E1A75581B006746DD /* BrickIntercom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BrickIntercom.h; path = Classes/BrickIntercom.h; sourceTree = "<group>"; };
+		C2CA150F1A75581B006746DD /* BrickIntercom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrickIntercom.m; path = Classes/BrickIntercom.m; sourceTree = "<group>"; };
+		C2D9363C1AB46A030020968B /* NSBundle+LoginItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+LoginItem.h"; sourceTree = "<group>"; };
+		C2D9363D1AB46A030020968B /* NSBundle+LoginItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+LoginItem.m"; sourceTree = "<group>"; };
+		C2D9363E1AB46A030020968B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C2D936421AB47D170020968B /* BrickPF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BrickPF.h; path = Classes/BrickPF.h; sourceTree = "<group>"; };
+		C2D936431AB47D170020968B /* BrickPF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrickPF.m; path = Classes/BrickPF.m; sourceTree = "<group>"; };
+		C2D936461AB4855C0020968B /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
+		C2D936481AB487210020968B /* BrickRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BrickRule.h; path = Classes/BrickRule.h; sourceTree = "<group>"; };
+		C2D936491AB487210020968B /* BrickRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrickRule.m; path = Classes/BrickRule.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AC1434F214E698EF00406CEF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2CA14991A74F769006746DD /* SystemConfiguration.framework in Frameworks */,
+				C2CA14971A74F717006746DD /* CFNetwork.framework in Frameworks */,
+				AC0D68E314E69B2F006DC48D /* ServiceManagement.framework in Frameworks */,
+				AC0D68E014E69B29006DC48D /* Security.framework in Frameworks */,
+				AC1434FA14E698EF00406CEF /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC95705E14E6A0B600607575 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C23F53B01A7BE14500F32E2A /* CFNetwork.framework in Frameworks */,
+				C23F53AF1A7BE14200F32E2A /* SystemConfiguration.framework in Frameworks */,
+				AC95706414E6A0B600607575 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AC1434EA14E698EE00406CEF = {
+			isa = PBXGroup;
+			children = (
+				AC1434FF14E698EF00406CEF /* Brick */,
+				C24256121A743F4000CE573A /* BrickLayer */,
+				AC1434F814E698EF00406CEF /* Frameworks */,
+				AC1434F614E698EF00406CEF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AC1434F614E698EF00406CEF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC1434F514E698EF00406CEF /* Brick.app */,
+				AC95706114E6A0B600607575 /* com.funkensturm.BrickLayer */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AC1434F814E698EF00406CEF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C2CA14981A74F769006746DD /* SystemConfiguration.framework */,
+				C2CA14961A74F717006746DD /* CFNetwork.framework */,
+				AC0D68E214E69B2F006DC48D /* ServiceManagement.framework */,
+				AC0D68DF14E69B29006DC48D /* Security.framework */,
+				AC1434F914E698EF00406CEF /* Cocoa.framework */,
+				AC95706314E6A0B600607575 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AC1434FF14E698EF00406CEF /* Brick */ = {
+			isa = PBXGroup;
+			children = (
+				C242561D1A743FC400CE573A /* Classes */,
+				AC14350014E698EF00406CEF /* Config */,
+				C2CA149D1A751E75006746DD /* Vendor */,
+				C2CA148E1A74DC86006746DD /* Images.xcassets */,
+			);
+			path = Brick;
+			sourceTree = "<group>";
+		};
+		AC14350014E698EF00406CEF /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				C2CA14841A744B5F006746DD /* MainMenu.xib */,
+				C242560A1A743D3C00CE573A /* Brick-Info.plist */,
+				C242560B1A743D3C00CE573A /* Brick-Prefix.pch */,
+				C242560C1A743D3C00CE573A /* main.m */,
+				C2D936461AB4855C0020968B /* Defaults.plist */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
+		C24256121A743F4000CE573A /* BrickLayer */ = {
+			isa = PBXGroup;
+			children = (
+				C24256161A743F4000CE573A /* Classes */,
+				C242561C1A743FB200CE573A /* Config */,
+			);
+			path = BrickLayer;
+			sourceTree = "<group>";
+		};
+		C24256161A743F4000CE573A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C24256171A743F4000CE573A /* BrickLayer.h */,
+				C24256181A743F4000CE573A /* BrickLayer.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		C242561C1A743FB200CE573A /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				C24256191A743F4000CE573A /* main.m */,
+				C24256131A743F4000CE573A /* BrickLayer-Info.plist */,
+				C24256141A743F4000CE573A /* BrickLayer-Launchd.plist */,
+				C24256151A743F4000CE573A /* BrickLayer-Prefix.pch */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
+		C242561D1A743FC400CE573A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C2CA15141A763ADA006746DD /* Controllers */,
+				C2CA15151A763ADF006746DD /* Models */,
+				C2CA15161A763AE2006746DD /* Views */,
+				C2CA15171A763AFE006746DD /* Libraries */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		C2CA149D1A751E75006746DD /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				C2D9363B1AB46A030020968B /* IYLoginItem */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		C2CA15141A763ADA006746DD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C242560F1A743D6F00CE573A /* BrickController.h */,
+				C24256101A743D6F00CE573A /* BrickController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		C2CA15151A763ADF006746DD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C2D936421AB47D170020968B /* BrickPF.h */,
+				C2D936431AB47D170020968B /* BrickPF.m */,
+				C2D936481AB487210020968B /* BrickRule.h */,
+				C2D936491AB487210020968B /* BrickRule.m */,
+				C25B39091AB8BE2500E66AA5 /* BrickRules.h */,
+				C25B390A1AB8BE2500E66AA5 /* BrickRules.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		C2CA15161A763AE2006746DD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C2CA149A1A74F7DB006746DD /* BrickMenu.h */,
+				C2CA149B1A74F7DB006746DD /* BrickMenu.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		C2CA15171A763AFE006746DD /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				C2CA150E1A75581B006746DD /* BrickIntercom.h */,
+				C2CA150F1A75581B006746DD /* BrickIntercom.m */,
+				C270ECF11A76D04300F132F7 /* BrickPreferences.h */,
+				C270ECF21A76D04300F132F7 /* BrickPreferences.m */,
+				C2CA14C21A751F0A006746DD /* BrickLogger.h */,
+				C2CA14C31A751F0A006746DD /* BrickLogger.m */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		C2D9363B1AB46A030020968B /* IYLoginItem */ = {
+			isa = PBXGroup;
+			children = (
+				C2D9363C1AB46A030020968B /* NSBundle+LoginItem.h */,
+				C2D9363D1AB46A030020968B /* NSBundle+LoginItem.m */,
+				C2D9363E1AB46A030020968B /* README.md */,
+			);
+			path = IYLoginItem;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AC1434F414E698EF00406CEF /* Brick */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC14352714E698EF00406CEF /* Build configuration list for PBXNativeTarget "Brick" */;
+			buildPhases = (
+				AC1434F114E698EF00406CEF /* Sources */,
+				AC1434F214E698EF00406CEF /* Frameworks */,
+				AC1434F314E698EF00406CEF /* Resources */,
+				AC95707914E6AD0000607575 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC95707814E6ACF800607575 /* PBXTargetDependency */,
+			);
+			name = Brick;
+			productName = Brick;
+			productReference = AC1434F514E698EF00406CEF /* Brick.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AC95706014E6A0B600607575 /* BrickLayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC95706E14E6A0B600607575 /* Build configuration list for PBXNativeTarget "BrickLayer" */;
+			buildPhases = (
+				AC95705D14E6A0B600607575 /* Sources */,
+				AC95705E14E6A0B600607575 /* Frameworks */,
+				AC95705F14E6A0B600607575 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BrickLayer;
+			productName = BrickLayer;
+			productReference = AC95706114E6A0B600607575 /* com.funkensturm.BrickLayer */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AC1434EC14E698EE00406CEF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastTestingUpgradeCheck = 0610;
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = xdissent.com;
+			};
+			buildConfigurationList = AC1434EF14E698EE00406CEF /* Build configuration list for PBXProject "Brick" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = AC1434EA14E698EE00406CEF;
+			productRefGroup = AC1434F614E698EF00406CEF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AC1434F414E698EF00406CEF /* Brick */,
+				AC95706014E6A0B600607575 /* BrickLayer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AC1434F314E698EF00406CEF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2CA148F1A74DC86006746DD /* Images.xcassets in Resources */,
+				C2CA14851A744B5F006746DD /* MainMenu.xib in Resources */,
+				C2D936471AB4855C0020968B /* Defaults.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AC1434F114E698EF00406CEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2D936441AB47D170020968B /* BrickPF.m in Sources */,
+				C270ECF31A76D04300F132F7 /* BrickPreferences.m in Sources */,
+				C2CA149C1A74F7DB006746DD /* BrickMenu.m in Sources */,
+				C242560E1A743D3C00CE573A /* main.m in Sources */,
+				C2CA15101A75581B006746DD /* BrickIntercom.m in Sources */,
+				C2D9363F1AB46A030020968B /* NSBundle+LoginItem.m in Sources */,
+				C2CA14C51A751F0A006746DD /* BrickLogger.m in Sources */,
+				C25B390B1AB8BE2500E66AA5 /* BrickRules.m in Sources */,
+				C24256111A743D6F00CE573A /* BrickController.m in Sources */,
+				C2D936401AB46A030020968B /* README.md in Sources */,
+				C2D9364A1AB487210020968B /* BrickRule.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC95705D14E6A0B600607575 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C242561B1A743F4000CE573A /* main.m in Sources */,
+				C242561A1A743F4000CE573A /* BrickLayer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AC95707814E6ACF800607575 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AC95706014E6A0B600607575 /* BrickLayer */;
+			targetProxy = AC95707714E6ACF800607575 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		AC14352514E698EF00406CEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		AC14352614E698EF00406CEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		AC14352814E698EF00406CEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = halo;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Brick/Brick-Prefix.pch";
+				INFOPLIST_FILE = "Brick/Brick-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = Brick;
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Brick/Vendor/CocoaLumberjack/Brick-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		AC14352914E698EF00406CEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = halo;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Brick/Brick-Prefix.pch";
+				INFOPLIST_FILE = "Brick/Brick-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = Brick;
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Brick/Vendor/CocoaLumberjack/Brick-Bridging-Header.h";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		AC95706C14E6A0B600607575 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = halo;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BrickLayer/BrickLayer-Prefix.pch";
+				OTHER_LDFLAGS = (
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					"BrickLayer/BrickLayer-Info.plist",
+					"-sectcreate",
+					__TEXT,
+					__launchd_plist,
+					"BrickLayer/BrickLayer-Launchd.plist",
+				);
+				PRODUCT_NAME = com.funkensturm.BrickLayer;
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		AC95706D14E6A0B600607575 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = halo;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BrickLayer/BrickLayer-Prefix.pch";
+				OTHER_LDFLAGS = (
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					"BrickLayer/BrickLayer-Info.plist",
+					"-sectcreate",
+					__TEXT,
+					__launchd_plist,
+					"BrickLayer/BrickLayer-Launchd.plist",
+				);
+				PRODUCT_NAME = com.funkensturm.BrickLayer;
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AC1434EF14E698EE00406CEF /* Build configuration list for PBXProject "Brick" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC14352514E698EF00406CEF /* Debug */,
+				AC14352614E698EF00406CEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC14352714E698EF00406CEF /* Build configuration list for PBXNativeTarget "Brick" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC14352814E698EF00406CEF /* Debug */,
+				AC14352914E698EF00406CEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC95706E14E6A0B600607575 /* Build configuration list for PBXNativeTarget "BrickLayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC95706C14E6A0B600607575 /* Debug */,
+				AC95706D14E6A0B600607575 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AC1434EC14E698EE00406CEF /* Project object */;
+}
