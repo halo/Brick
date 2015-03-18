@@ -138,6 +138,14 @@
   }];
 }
 
+- (void) activateOnStartupWithReply:(void(^)(BOOL))block {
+  [Log debug:@"Simulating startup activation..."];
+}
+
+- (void) deactivateOnStartupWithReply:(void(^)(BOOL))block {
+  [Log debug:@"Simulating startup deactivation..."];
+}
+
 - (AuthorizationRef) createAuthRef {
   AuthorizationRef authRef = NULL;
   AuthorizationItem authItem = { kSMRightBlessPrivilegedHelper, 0, NULL, 0 };

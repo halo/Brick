@@ -4,6 +4,7 @@
 #import "BrickMenu.h"
 #import "BrickLayer.h"
 #import "BrickRules.h"
+#import "BrickPF.h"
 #import "BrickPreferences.h"
 
 @implementation BrickController
@@ -17,20 +18,60 @@
   [Log debug:@"Awoke from NIB"];
   self.statusItem.menu = self.statusMenu;
   [BrickPreferences loadDefaults];
-  [self.statusMenu refresh];
 }
 
 # pragma mark Callbacks
 
 - (void) menuWillOpen:(NSMenu*)menu {
-  [self.statusMenu refresh];
+  [Log debug:@"Menu will open..."];
+  [self refresh];
 }
 
 # pragma mark Actions
 
+- (void) toggleActivation:(NSMenuItem*)sender {
+  
+}
+
 - (void) toggleRule:(NSMenuItem*)sender {
   NSString *identifier = sender.representedObject;
   [BrickRules toggleRuleWithIdentifier:identifier];
+  [self update];
+}
+
+- (void) installHelperTool:(NSMenuItem*)sender {
+  
+}
+
+- (void) getHelp:(NSMenuItem*)sender {
+  
+}
+
+- (void) toggleDebugMode:(NSMenuItem*)sender {
+  
+}
+
+- (void) toggleLogin:(NSMenuItem*)sender {
+  
+}
+
+# pragma mark Internal Helpers
+
+- (void) refresh {
+  [Log debug:@"Checking for helper..."];
+  [self usingHelperTool:^(NSInteger helperStatus, NSString *helperVersion) {
+    if (helperStatus == HelperReady) {
+      [Log debug:@"Yes, the helper is up and running."];
+      [self.statusMenu refresh];
+    } else {
+      [Log debug:@"Nopes, the helper is missing."];
+      [self.statusMenu helperMissing];
+    }
+  }];
+}
+
+- (void) update {
+  
 }
 
 - (void) usingHelperTool:(void(^)(NSInteger, NSString*))block {
@@ -46,17 +87,6 @@
       block(HelperVersionMismatch, helperVersion);
     }
   }];
-}
-
-- (NSImage*) statusMenuIcon {
-  NSImage *icon;
-  if (NO) {
-    icon = [NSImage imageNamed:@"MenuIconSatelliteOff"];
-  } else {
-    icon = [NSImage imageNamed:@"MenuIconSatelliteOn"];
-  }
-  [icon setTemplate:YES]; // Allows the correct highlighting of the icon when the menu is clicked.
-  return icon;
 }
 
 # pragma mark Internal Getters
@@ -90,6 +120,17 @@
   statusItem.button.accessibilityTitle = @"Brick";
   //statusItem.button.appearsDisabled = YES;
   return statusItem;
+}
+
+- (NSImage*) statusMenuIcon {
+  NSImage *icon;
+  if ([BrickPF rulesActivated]) {
+    icon = [NSImage imageNamed:@"MenuIconSatelliteOff"];
+  } else {
+    icon = [NSImage imageNamed:@"MenuIconSatelliteOn"];
+  }
+  [icon setTemplate:YES]; // Allows the correct highlighting of the icon when the menu is clicked.
+  return icon;
 }
 
 @end

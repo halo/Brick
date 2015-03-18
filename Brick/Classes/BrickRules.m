@@ -32,6 +32,14 @@ const NSString *RuleRulesSuffix = @"rules";
   return rule;
 }
 
++ (NSString*) pf {
+  NSMutableArray *result = [NSMutableArray new];
+  for (BrickRule *rule in [self all]) {
+    [result addObject:rule.pf];
+  }
+  return [result componentsJoinedByString:@"\n\n"];
+}
+
 # pragma mark Public Setters
 
 + (void) toggleRuleWithIdentifier:(NSString*)identifier {
@@ -48,10 +56,6 @@ const NSString *RuleRulesSuffix = @"rules";
 
 + (NSArray*) identifiers {
   return [[self backend] arrayForKey:(NSString*)IdentifiersFlag];
-}
-
-+ (BOOL) ruleActivated:(NSString*)identifier {
-  
 }
 
 + (NSString*) activatedKey:(NSString*)identifier {

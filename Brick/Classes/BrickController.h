@@ -16,11 +16,13 @@ typedef NS_ENUM(NSInteger, HelperToolStatus) {
 @property (readonly) BrickIntercom *brickIntercom;
 @property (readonly) NSImage *statusMenuIcon;
 
+# pragma mark Actions
+
+- (void) toggleActivation:(NSMenuItem*)sender;
+- (void) toggleRule:(NSMenuItem*)sender;
 - (void) installHelperTool:(NSMenuItem*)sender;
 - (void) getHelp:(NSMenuItem*)sender;
 - (void) toggleDebugMode:(NSMenuItem*)sender;
 - (void) toggleLogin:(NSMenuItem*)sender;
-
-- (void) toggleRule:(NSMenuItem*)sender;
 
 @end

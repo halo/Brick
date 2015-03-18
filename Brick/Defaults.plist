@@ -6,9 +6,10 @@
 	<true/>
 	<key>rules</key>
 	<array>
+		<string>loopback</string>
+		<string>rfc1918</string>
 		<string>dns</string>
 		<string>dhcp</string>
-		<string>rfc1918</string>
 		<string>l2tpipsec</string>
 	</array>
 	<key>rule.rfc1918.activated</key>

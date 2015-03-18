@@ -28,7 +28,6 @@
 		C2CA14C51A751F0A006746DD /* BrickLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CA14C31A751F0A006746DD /* BrickLogger.m */; };
 		C2CA15101A75581B006746DD /* BrickIntercom.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CA150F1A75581B006746DD /* BrickIntercom.m */; };
 		C2D9363F1AB46A030020968B /* NSBundle+LoginItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D9363D1AB46A030020968B /* NSBundle+LoginItem.m */; };
-		C2D936401AB46A030020968B /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = C2D9363E1AB46A030020968B /* README.md */; };
 		C2D936441AB47D170020968B /* BrickPF.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D936431AB47D170020968B /* BrickPF.m */; };
 		C2D936471AB4855C0020968B /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2D936461AB4855C0020968B /* Defaults.plist */; };
 		C2D9364A1AB487210020968B /* BrickRule.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D936491AB487210020968B /* BrickRule.m */; };
@@ -385,7 +384,6 @@
 				C2CA14C51A751F0A006746DD /* BrickLogger.m in Sources */,
 				C25B390B1AB8BE2500E66AA5 /* BrickRules.m in Sources */,
 				C24256111A743D6F00CE573A /* BrickController.m in Sources */,
-				C2D936401AB46A030020968B /* README.md in Sources */,
 				C2D9364A1AB487210020968B /* BrickRule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

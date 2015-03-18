@@ -5,5 +5,6 @@
 @property (strong) NSString* comment;
 @property (strong) NSArray* rules;
 @property (atomic) BOOL activated;
+@property (readonly) NSString* pf;
 
 @end

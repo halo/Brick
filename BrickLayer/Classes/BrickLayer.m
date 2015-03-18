@@ -34,7 +34,7 @@ const NSString *PFAnchorPath = @"/etc/pf.anchors/com.funkensturm.Brick";
 }
 
 - (BOOL) listener:(NSXPCListener*)listener shouldAcceptNewConnection:(NSXPCConnection*)newConnection {
-#pragma unused(listener)
+  #pragma unused(listener)
   NSAssert(listener == self.listener, @"NSXPCListener is not my instance variable", listener, self.listener);
   NSAssert(newConnection != nil, @"XPC connection is nil", newConnection);
   

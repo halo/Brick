@@ -2,7 +2,7 @@
 
 @implementation BrickPF
 
-- (BOOL) rulesActivated {
++ (BOOL) rulesActivated {
   return YES;
 }
 

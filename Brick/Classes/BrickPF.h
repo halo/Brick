@@ -1,5 +1,5 @@
 @interface BrickPF : NSObject
 
-- (BOOL) rulesActivated;
++ (BOOL) rulesActivated;
 
 @end
