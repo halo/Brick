@@ -40,7 +40,7 @@
 }
 
 - (void) installHelperTool:(NSMenuItem*)sender {
-  
+  [self.brickIntercom installHelperTool];
 }
 
 - (void) getHelp:(NSMenuItem*)sender {
@@ -59,10 +59,10 @@
 
 - (void) refresh {
   [Log debug:@"Checking for helper..."];
+  [self.statusMenu refresh];
   [self usingHelperTool:^(NSInteger helperStatus, NSString *helperVersion) {
     if (helperStatus == HelperReady) {
       [Log debug:@"Yes, the helper is up and running."];
-      [self.statusMenu refresh];
     } else {
       [Log debug:@"Nopes, the helper is missing."];
       [self.statusMenu helperMissing];

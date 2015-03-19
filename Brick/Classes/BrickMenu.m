@@ -10,32 +10,31 @@
 @implementation BrickMenu
 
 - (void) refresh {
+  [Log debug:@"Menu assumes helper exists..."];
   [self removeAllItems];
   [self addItem:[self aktivationItem]];
-  [self addRulesActionable:YES];
+  [self addRules];
   [self addSuffixItems];
 }
 
 - (void) helperMissing {
-  [self removeAllItems];
-  [self addItem:[self authorizeHelperItem]];
-  [self addRulesActionable:NO];
-  [self addSuffixItems];
+  [Log debug:@"Menu assumes helper is missing..."];
+  
 }
 
 # pragma mark Internal Helpers
 
-- (void) addRulesActionable:(BOOL)actionable {
+- (void) addRules {
   [Log debug:@"Adding rules..."];
   [self addItem:[NSMenuItem separatorItem]];
   [self addItem: [[NSMenuItem alloc] initWithTitle:@"Allow outgoing" action:nil keyEquivalent:@""]];
   for (BrickRule* rule in [BrickRules all]) {
     if (!rule.name) continue;
-    [self addItem:[self menuForRule:rule actionable:actionable]];
+    [self addItem:[self menuForRule:rule]];
   }
 }
 
-- (NSMenuItem*) menuForRule:(BrickRule*)rule actionable:(BOOL)actionable {
+- (NSMenuItem*) menuForRule:(BrickRule*)rule {
   [Log debug:@"Adding rule: %@", rule];
   [Log debug:@"Name: %@", rule.name];
 
@@ -45,7 +44,7 @@
   item.toolTip = rule.comment;
   item.target = self.delegate;
   if (rule.activated) item.state = NSOnState;
-  if (actionable) item.action = @selector(toggleRule:);
+  item.action = @selector(toggleRule:);
   [Log debug:@"Created MenuItem %@", item];
 
   return item;
