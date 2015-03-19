@@ -48,7 +48,7 @@
       [Log debug:@"XPC connection invalidated\n"];
     }];
   };
-#pragma clang diagnostic pop
+  #pragma clang diagnostic pop
   [Log debug:@"Resuming connection..."];
   [self.helperToolConnection resume];
   [Log debug:@"Connection resumed."];

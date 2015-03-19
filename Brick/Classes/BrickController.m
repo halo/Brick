@@ -18,6 +18,7 @@
   [Log debug:@"Awoke from NIB"];
   self.statusItem.menu = self.statusMenu;
   [BrickPreferences loadDefaults];
+  [self.statusMenu load];
 }
 
 # pragma mark Callbacks
@@ -41,6 +42,7 @@
 
 - (void) installHelperTool:(NSMenuItem*)sender {
   [self.brickIntercom installHelperTool];
+  [self.statusMenu refreshAssumingAuthorized];
 }
 
 - (void) getHelp:(NSMenuItem*)sender {
@@ -59,13 +61,13 @@
 
 - (void) refresh {
   [Log debug:@"Checking for helper..."];
-  [self.statusMenu refresh];
   [self usingHelperTool:^(NSInteger helperStatus, NSString *helperVersion) {
     if (helperStatus == HelperReady) {
       [Log debug:@"Yes, the helper is up and running."];
+      [self.statusMenu refreshAssumingAuthorized];
     } else {
       [Log debug:@"Nopes, the helper is missing."];
-      [self.statusMenu helperMissing];
+      [self.statusMenu refreshAssumingUnauthorized];
     }
   }];
 }

@@ -9,17 +9,32 @@
 
 @implementation BrickMenu
 
-- (void) refresh {
-  [Log debug:@"Menu assumes helper exists..."];
-  [self removeAllItems];
-  [self addItem:[self aktivationItem]];
+@synthesize authorized;
+@synthesize authorizeHelperItem, activationItem;
+
+# pragma mark Initialization
+
+- (void) load {
+  [self addItem:[self authorizeHelperItem]];
+  [self addItem:[self activationItem]];
   [self addRules];
   [self addSuffixItems];
 }
 
-- (void) helperMissing {
+# pragma mark Refreshing
+
+- (void) refreshAssumingUnauthorized {
   [Log debug:@"Menu assumes helper is missing..."];
-  
+  self.authorized = NO;
+  self.authorizeHelperItem.hidden = NO;
+  self.activationItem.hidden = YES;
+}
+
+- (void) refreshAssumingAuthorized {
+  [Log debug:@"Menu assumes helper exists..."];
+  self.authorized = YES;
+  self.authorizeHelperItem.hidden = YES;
+  self.activationItem.hidden = NO;
 }
 
 # pragma mark Internal Helpers
@@ -44,7 +59,8 @@
   item.toolTip = rule.comment;
   item.target = self.delegate;
   if (rule.activated) item.state = NSOnState;
-  item.action = @selector(toggleRule:);
+  if (self.authorized) item.action = @selector(toggleRule:);
+  item.tag = MenuItemRule;
   [Log debug:@"Created MenuItem %@", item];
 
   return item;
@@ -56,16 +72,21 @@
   [self addItem:[self quitItem]];
 }
 
-- (NSMenuItem*) aktivationItem {
-  NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:@"Activate" action:@selector(toggleActivation:) keyEquivalent:@""];
-  item.target = self.delegate;
-  return item;
+- (NSMenuItem*) activationItem {
+  if (activationItem) return activationItem;
+  activationItem = [[NSMenuItem alloc] initWithTitle:@"Activate" action:@selector(toggleActivation:) keyEquivalent:@""];
+  activationItem.target = self.delegate;
+  activationItem.tag = MenuItemActivate;
+  activationItem.hidden = YES;
+  return activationItem;
 }
 
 - (NSMenuItem*) authorizeHelperItem {
-  NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:@"Authorize..." action:@selector(installHelperTool:) keyEquivalent:@""];
-  item.target = self.delegate;
-  return item;
+  if (authorizeHelperItem) return authorizeHelperItem;
+  authorizeHelperItem = [[NSMenuItem alloc] initWithTitle:@"Authorize..." action:@selector(installHelperTool:) keyEquivalent:@""];
+  authorizeHelperItem.target = self.delegate;
+  authorizeHelperItem.tag = MenuItemAuthorize;
+  return authorizeHelperItem;
 }
 
 - (NSMenuItem*) helpItem {

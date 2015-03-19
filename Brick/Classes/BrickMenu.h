@@ -1,6 +1,19 @@
+typedef NS_ENUM(NSInteger, MenuItemKind) {
+  MenuItemAuthorize,
+  MenuItemActivate,
+  MenuItemRule,
+};
+
 @interface BrickMenu : NSMenu
 
-- (void) refresh;
-- (void) helperMissing;
+@property (readonly) NSMenuItem* activationItem;
+@property (readonly) NSMenuItem* authorizeHelperItem;
+
+@property (atomic) BOOL authorized;
+
+- (void) load;
+
+- (void) refreshAssumingUnauthorized;
+- (void) refreshAssumingAuthorized;
 
 @end
