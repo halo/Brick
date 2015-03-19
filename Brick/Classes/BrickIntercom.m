@@ -28,7 +28,7 @@
   // actually runs, and b) the retain taken by the block passed to -addOperationWithBlock:
   // will be released when that operation completes and the operation itself is deallocated
   // (notably self does not have a reference to the NSBlockOperation).
-#pragma clang diagnostic ignored "-Warc-retain-cycles"
+  #pragma clang diagnostic ignored "-Warc-retain-cycles"
   self.helperToolConnection.interruptionHandler = ^{
     // If the connection gets invalidated then, on the main thread, nil out our
     // reference to it.  This ensures that we attempt to rebuild it the next time around.
@@ -52,7 +52,6 @@
   [Log debug:@"Resuming connection..."];
   [self.helperToolConnection resume];
   [Log debug:@"Connection resumed."];
-  
 }
 
 - (void) connectAndExecuteCommandBlock:(void(^)(NSError *))commandBlock {
@@ -108,7 +107,7 @@
   return YES;
 }
 
-- (void) setRules:(NSString*)rules withReply:(void(^)(BOOL))block {
+- (void) setRules:(NSString*)rules {
   [Log debug:@"Setting rules..."];
   [self connectAndExecuteCommandBlock:^(NSError *connectError) {
     if (connectError != nil) {
@@ -123,7 +122,7 @@
   }];
 }
 
-- (void) removeAllRulesWithReply:(void(^)(BOOL))block {
+- (void) removeAllRules {
   [Log debug:@"Setting rules..."];
   [self connectAndExecuteCommandBlock:^(NSError *connectError) {
     if (connectError != nil) {
@@ -138,11 +137,11 @@
   }];
 }
 
-- (void) activateOnStartupWithReply:(void(^)(BOOL))block {
+- (void) activateOnStartup {
   [Log debug:@"Simulating startup activation..."];
 }
 
-- (void) deactivateOnStartupWithReply:(void(^)(BOOL))block {
+- (void) deactivateOnStartup {
   [Log debug:@"Simulating startup deactivation..."];
 }
 

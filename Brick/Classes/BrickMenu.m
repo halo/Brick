@@ -1,7 +1,6 @@
 #import "BrickMenu.h"
 
 #import "BrickController.h"
-#import "BrickPF.h"
 #import "BrickRule.h"
 #import "BrickRules.h"
 #import "BrickPreferences.h"
@@ -17,32 +16,44 @@
 - (void) load {
   [self addItem:[self authorizeHelperItem]];
   [self addItem:[self activationItem]];
+  [self addItem:[NSMenuItem separatorItem]];
+  [self addItem: [[NSMenuItem alloc] initWithTitle:@"Allow outgoing" action:nil keyEquivalent:@""]];
   [self addRules];
   [self addSuffixItems];
 }
 
 # pragma mark Refreshing
 
-- (void) refreshAssumingUnauthorized {
-  [Log debug:@"Menu assumes helper is missing..."];
-  self.authorized = NO;
-  self.authorizeHelperItem.hidden = NO;
-  self.activationItem.hidden = YES;
-}
-
-- (void) refreshAssumingAuthorized {
+- (void) authorize {
   [Log debug:@"Menu assumes helper exists..."];
   self.authorized = YES;
   self.authorizeHelperItem.hidden = YES;
   self.activationItem.hidden = NO;
 }
 
+- (void) unauthorize {
+  [Log debug:@"Menu assumes helper is missing..."];
+  self.authorized = NO;
+  self.authorizeHelperItem.hidden = NO;
+  self.activationItem.hidden = YES;
+}
+
+- (void) refreshRules {
+  [self removeRules];
+  [self addRules];
+}
+
 # pragma mark Internal Helpers
+
+- (void) removeRules {
+  NSMenuItem* item;
+  while ((item = [self itemWithTag:MenuItemRule])) {
+    [self removeItem:item];
+  }
+}
 
 - (void) addRules {
   [Log debug:@"Adding rules..."];
-  [self addItem:[NSMenuItem separatorItem]];
-  [self addItem: [[NSMenuItem alloc] initWithTitle:@"Allow outgoing" action:nil keyEquivalent:@""]];
   for (BrickRule* rule in [BrickRules all]) {
     if (!rule.name) continue;
     [self addItem:[self menuForRule:rule]];

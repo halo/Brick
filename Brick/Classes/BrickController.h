@@ -11,7 +11,7 @@ typedef NS_ENUM(NSInteger, HelperToolStatus) {
 @interface BrickController : NSObject <NSApplicationDelegate, NSMenuDelegate>
 
 @property (readonly) NSStatusItem *statusItem;
-@property (readonly) BrickMenu *statusMenu;
+@property (readonly) BrickMenu *brickMenu;
 @property (readonly) BrickLayer *brickLayer;
 @property (readonly) BrickIntercom *brickIntercom;
 @property (readonly) NSImage *statusMenuIcon;

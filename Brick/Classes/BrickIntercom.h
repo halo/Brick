@@ -5,9 +5,9 @@
 - (BOOL) installHelperTool;
 - (void) getVersionWithReply:(void(^)(NSString*))block;
 
-- (void) setRules:(NSString*)rules withReply:(void(^)(BOOL))block;
-- (void) removeAllRulesWithReply:(void(^)(BOOL success))block;
-- (void) activateOnStartupWithReply:(void(^)(BOOL success))block;
-- (void) deactivateOnStartupWithReply:(void(^)(BOOL success))block;
+- (void) setRules:(NSString*)rules;
+- (void) removeAllRules;
+- (void) activateOnStartup;
+- (void) deactivateOnStartup;
 
 @end

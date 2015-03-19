@@ -28,7 +28,6 @@
 		C2CA14C51A751F0A006746DD /* BrickLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CA14C31A751F0A006746DD /* BrickLogger.m */; };
 		C2CA15101A75581B006746DD /* BrickIntercom.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CA150F1A75581B006746DD /* BrickIntercom.m */; };
 		C2D9363F1AB46A030020968B /* NSBundle+LoginItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D9363D1AB46A030020968B /* NSBundle+LoginItem.m */; };
-		C2D936441AB47D170020968B /* BrickPF.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D936431AB47D170020968B /* BrickPF.m */; };
 		C2D936471AB4855C0020968B /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2D936461AB4855C0020968B /* Defaults.plist */; };
 		C2D9364A1AB487210020968B /* BrickRule.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D936491AB487210020968B /* BrickRule.m */; };
 /* End PBXBuildFile section */
@@ -100,8 +99,6 @@
 		C2D9363C1AB46A030020968B /* NSBundle+LoginItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+LoginItem.h"; sourceTree = "<group>"; };
 		C2D9363D1AB46A030020968B /* NSBundle+LoginItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+LoginItem.m"; sourceTree = "<group>"; };
 		C2D9363E1AB46A030020968B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		C2D936421AB47D170020968B /* BrickPF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BrickPF.h; path = Classes/BrickPF.h; sourceTree = "<group>"; };
-		C2D936431AB47D170020968B /* BrickPF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrickPF.m; path = Classes/BrickPF.m; sourceTree = "<group>"; };
 		C2D936461AB4855C0020968B /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		C2D936481AB487210020968B /* BrickRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BrickRule.h; path = Classes/BrickRule.h; sourceTree = "<group>"; };
 		C2D936491AB487210020968B /* BrickRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrickRule.m; path = Classes/BrickRule.m; sourceTree = "<group>"; };
@@ -248,8 +245,6 @@
 		C2CA15151A763ADF006746DD /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C2D936421AB47D170020968B /* BrickPF.h */,
-				C2D936431AB47D170020968B /* BrickPF.m */,
 				C2D936481AB487210020968B /* BrickRule.h */,
 				C2D936491AB487210020968B /* BrickRule.m */,
 				C25B39091AB8BE2500E66AA5 /* BrickRules.h */,
@@ -375,7 +370,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2D936441AB47D170020968B /* BrickPF.m in Sources */,
 				C270ECF31A76D04300F132F7 /* BrickPreferences.m in Sources */,
 				C2CA149C1A74F7DB006746DD /* BrickMenu.m in Sources */,
 				C242560E1A743D3C00CE573A /* main.m in Sources */,

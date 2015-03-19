@@ -9,6 +9,9 @@ const NSString *RuleNameSuffix = @"name";
 const NSString *RuleCommentSuffix = @"comment";
 const NSString *RuleRulesSuffix = @"rules";
 
+// Duplicated in BrickLayer
+const NSString *PFAnchorPath = @"/etc/pf.anchors/com.funkensturm.Brick";
+
 @implementation BrickRules
 
 # pragma mark Public Getters
@@ -21,23 +24,16 @@ const NSString *RuleRulesSuffix = @"rules";
   return (NSArray*)result;
 }
 
-+ (BrickRule*) findByIdentifier:(NSString*)identifier {
-  [Log debug:@"Loading rule <%@>", identifier];
-  BrickRule *rule = [BrickRule new];
-  rule.identifier = identifier;
-  rule.name = [[self backend] stringForKey:[self nameKey:identifier]];
-  rule.activated = [[self backend] boolForKey:[self activatedKey:identifier]];
-  rule.comment = [[self backend] stringForKey:[self commentKey:identifier]];
-  rule.rules = [[self backend] arrayForKey:[self rulesKey:identifier]];
-  return rule;
-}
-
 + (NSString*) pf {
   NSMutableArray *result = [NSMutableArray new];
   for (BrickRule *rule in [self all]) {
     [result addObject:rule.pf];
   }
   return [result componentsJoinedByString:@"\n\n"];
+}
+
++ (BOOL) activated {
+  return [[NSFileManager defaultManager] fileExistsAtPath:(NSString*)PFAnchorPath];
 }
 
 # pragma mark Public Setters
@@ -53,6 +49,17 @@ const NSString *RuleRulesSuffix = @"rules";
 }
 
 # pragma mark Internal Getters
+
++ (BrickRule*) findByIdentifier:(NSString*)identifier {
+  [Log debug:@"Loading rule <%@>", identifier];
+  BrickRule *rule = [BrickRule new];
+  rule.identifier = identifier;
+  rule.name = [[self backend] stringForKey:[self nameKey:identifier]];
+  rule.activated = [[self backend] boolForKey:[self activatedKey:identifier]];
+  rule.comment = [[self backend] stringForKey:[self commentKey:identifier]];
+  rule.rules = [[self backend] arrayForKey:[self rulesKey:identifier]];
+  return rule;
+}
 
 + (NSArray*) identifiers {
   return [[self backend] arrayForKey:(NSString*)IdentifiersFlag];
