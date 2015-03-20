@@ -62,6 +62,7 @@ const NSString *PFAnchorPath = @"/etc/pf.anchors/com.funkensturm.Brick";
 
 - (void) removeAllRulesWithReply:(void(^)(BOOL success))reply {
   BOOL success = [self pfctlWithArguments:@[@"-a", PFAnchorName, @"-F"]];
+  [self deleteFile:(NSString*)PFAnchorPath];
   reply(success);
 }
 

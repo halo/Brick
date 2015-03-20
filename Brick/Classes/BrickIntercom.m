@@ -123,7 +123,7 @@
 }
 
 - (void) removeAllRules {
-  [Log debug:@"Setting rules..."];
+  [Log debug:@"Removing rules..."];
   [self connectAndExecuteCommandBlock:^(NSError *connectError) {
     if (connectError != nil) {
       [Log debug:@"connectError: %@", connectError.localizedDescription];

@@ -42,6 +42,11 @@
 - (void) refreshRules {
   [self removeRules];
   [self addRules];
+  if ([BrickRules activated]) {
+    self.activationItem.title = @"Deactivate";
+  } else {
+    self.activationItem.title = @"Activate";
+  }
 }
 
 # pragma mark Internal Helpers
@@ -60,17 +65,12 @@
   for (BrickRule* rule in [BrickRules all]) {
     if (!rule.name) continue;
     if (ruleItem) {
-      insertionIndex = [self indexOfItem:ruleItem];
-      NSLog(@"222 insertionIndex: %li", (long)insertionIndex);
+      insertionIndex = [self indexOfItem:ruleItem] + 1;
     } else {
       insertionIndex = self.topRuleIndex;
-      NSLog(@"111 insertionIndex: %li", (long)insertionIndex);
     }
     ruleItem = [self menuForRule:rule];
-    //if (insertionIndex != -1) [self insertItem:ruleItem atIndex:insertionIndex];
-    NSLog(@"itemArray %@", self.itemArray);
     [self insertItem:[self menuForRule:rule] atIndex:insertionIndex];
-    //[self addItem:ruleItem];
   }
 }
 
@@ -103,7 +103,7 @@
 
 - (NSMenuItem*) activationItem {
   if (activationItem) return activationItem;
-  activationItem = [[NSMenuItem alloc] initWithTitle:@"Activate" action:@selector(toggleActivation:) keyEquivalent:@""];
+  activationItem = [[NSMenuItem alloc] initWithTitle:@"Loading..." action:@selector(toggleActivation:) keyEquivalent:@""];
   activationItem.target = self.delegate;
   activationItem.hidden = YES;
   return activationItem;
