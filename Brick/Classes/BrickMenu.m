@@ -9,15 +9,16 @@
 @implementation BrickMenu
 
 @synthesize authorized;
-@synthesize authorizeHelperItem, activationItem;
+@synthesize authorizeHelperItem, activationItem, topRulesSeparator;
+@synthesize topRuleIndex;
 
 # pragma mark Initialization
 
 - (void) load {
-  [self addItem:[self authorizeHelperItem]];
-  [self addItem:[self activationItem]];
-  [self addItem:[NSMenuItem separatorItem]];
-  [self addItem: [[NSMenuItem alloc] initWithTitle:@"Allow outgoing" action:nil keyEquivalent:@""]];
+  [Log debug:@"Loading default MenuItems..."];
+  [self addItem:self.authorizeHelperItem];
+  [self addItem:self.activationItem];
+  [self addItem:self.topRulesSeparator];
   [self addRules];
   [self addSuffixItems];
 }
@@ -46,17 +47,30 @@
 # pragma mark Internal Helpers
 
 - (void) removeRules {
-  NSMenuItem* item;
-  while ((item = [self itemWithTag:MenuItemRule])) {
-    [self removeItem:item];
+  for (NSMenuItem *item in self.itemArray) {
+    if (item.tag == MenuItemRule) [self removeItem:item];
   }
 }
 
 - (void) addRules {
   [Log debug:@"Adding rules..."];
+  NSMenuItem *ruleItem;
+  NSInteger insertionIndex;
+  
   for (BrickRule* rule in [BrickRules all]) {
     if (!rule.name) continue;
-    [self addItem:[self menuForRule:rule]];
+    if (ruleItem) {
+      insertionIndex = [self indexOfItem:ruleItem];
+      NSLog(@"222 insertionIndex: %li", (long)insertionIndex);
+    } else {
+      insertionIndex = self.topRuleIndex;
+      NSLog(@"111 insertionIndex: %li", (long)insertionIndex);
+    }
+    ruleItem = [self menuForRule:rule];
+    //if (insertionIndex != -1) [self insertItem:ruleItem atIndex:insertionIndex];
+    NSLog(@"itemArray %@", self.itemArray);
+    [self insertItem:[self menuForRule:rule] atIndex:insertionIndex];
+    //[self addItem:ruleItem];
   }
 }
 
@@ -77,6 +91,10 @@
   return item;
 }
 
+- (NSInteger) topRuleIndex {
+  return [self indexOfItem:self.topRulesSeparator] + 1;
+}
+
 - (void) addSuffixItems {
   [self addItem:[NSMenuItem separatorItem]];
   [self addItem:[self helpItem]];
@@ -87,7 +105,6 @@
   if (activationItem) return activationItem;
   activationItem = [[NSMenuItem alloc] initWithTitle:@"Activate" action:@selector(toggleActivation:) keyEquivalent:@""];
   activationItem.target = self.delegate;
-  activationItem.tag = MenuItemActivate;
   activationItem.hidden = YES;
   return activationItem;
 }
@@ -96,8 +113,13 @@
   if (authorizeHelperItem) return authorizeHelperItem;
   authorizeHelperItem = [[NSMenuItem alloc] initWithTitle:@"Authorize..." action:@selector(installHelperTool:) keyEquivalent:@""];
   authorizeHelperItem.target = self.delegate;
-  authorizeHelperItem.tag = MenuItemAuthorize;
   return authorizeHelperItem;
+}
+
+- (NSMenuItem*) topRulesSeparator {
+  if (topRulesSeparator) return topRulesSeparator;
+  topRulesSeparator = [NSMenuItem separatorItem];
+  return topRulesSeparator;
 }
 
 - (NSMenuItem*) helpItem {

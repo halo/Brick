@@ -1,6 +1,5 @@
 typedef NS_ENUM(NSInteger, MenuItemKind) {
-  MenuItemAuthorize,
-  MenuItemActivate,
+  MenuItemDefault,
   MenuItemRule,
 };
 
@@ -8,6 +7,8 @@ typedef NS_ENUM(NSInteger, MenuItemKind) {
 
 @property (readonly) NSMenuItem* activationItem;
 @property (readonly) NSMenuItem* authorizeHelperItem;
+@property (readonly) NSMenuItem* topRulesSeparator;
+@property (readonly) NSInteger topRuleIndex;
 @property (atomic) BOOL authorized;
 
 # pragma mark Initialization

@@ -15,8 +15,8 @@
 
 - (void) awakeFromNib {
   [Log debug:@"Awoke from NIB"];
-  self.statusItem.menu = self.brickMenu;
   [BrickPreferences loadDefaults];
+  self.statusItem.menu = self.brickMenu;
 }
 
 # pragma mark Callbacks
