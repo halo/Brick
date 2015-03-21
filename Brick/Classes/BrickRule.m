@@ -7,6 +7,7 @@
 - (NSString*) pf {
   NSMutableArray *rows = [NSMutableArray new];
   //[Log debug:@"Exporting comment %@", self.comment];
+  [rows addObject:[NSString stringWithFormat:@"# %@", self.identifier]];
   [rows addObject:[NSString stringWithFormat:@"# %@", self.comment]];
   //[Log debug:@"Exporting rules %@", self.rules];
   [rows addObject:[self.rules componentsJoinedByString:@"\n"]];

@@ -12,6 +12,16 @@
 		<string>dhcp</string>
 		<string>l2tpipsec</string>
 	</array>
+	<key>rule.blockout.activated</key>
+	<true/>
+	<key>rule.blockout.name</key>
+	<string>Block all outgoing</string>
+	<key>rule.blockout.comment</key>
+	<string>Block everything leaving our Mac</string>
+	<key>rule.blockout.rules</key>
+	<array>
+		<string>block out all</string>
+	</array>
 	<key>rule.rfc1918.activated</key>
 	<false/>
 	<key>rule.rfc1918.name</key>
@@ -20,8 +30,12 @@
 	<string>Outgoing traffic destined for the local area network.</string>
 	<key>rule.rfc1918.rules</key>
 	<array>
-		<string>table &lt;rfc1918&gt; const { 192.168.0.0/16 172.16.0.0/12 10.0.0.0/8 }</string>
-		<string>pass out on { en0 en1 en2 en3 en4 } to &lt;rfc1918&gt;</string>
+		<string>table &lt;BrickRFC1918&gt; const { 192.168.0.0/16 172.16.0.0/12 10.0.0.0/8 }</string>
+		<string>pass out on { en0 en1 en2 en3 en4 } to &lt;BrickRFC1918&gt;</string>
 	</array>
+	<key>rule.loopback.activated</key>
+	<string>YES</string>
+	<key>rule.dns.name</key>
+	<string>DNS</string>
 </dict>
 </plist>

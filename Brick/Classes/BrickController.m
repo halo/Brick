@@ -45,7 +45,7 @@
 - (void) toggleRule:(NSMenuItem*)sender {
   NSString *identifier = sender.representedObject;
   [BrickRules toggleRuleWithIdentifier:identifier];
-  [self update];
+  [self activate];
 }
 
 - (void) getHelp:(NSMenuItem*)sender {
@@ -94,10 +94,6 @@
 - (void) refreshMenuIcon {
   statusItem.button.image = self.statusMenuIcon;
   statusItem.button.alternateImage = self.statusMenuIcon;
-}
-
-- (void) update {
-  
 }
 
 - (void) usingHelperTool:(void(^)(NSInteger, NSString*))block {

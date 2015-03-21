@@ -70,7 +70,7 @@
       insertionIndex = self.topRuleIndex;
     }
     ruleItem = [self menuForRule:rule];
-    [self insertItem:[self menuForRule:rule] atIndex:insertionIndex];
+    [self insertItem:ruleItem atIndex:insertionIndex];
   }
 }
 
@@ -85,8 +85,6 @@
   if (rule.activated) item.state = NSOnState;
   if (self.authorized) item.action = @selector(toggleRule:);
   item.tag = MenuItemRule;
-  [Log debug:@"Created MenuItem %@", item];
-
   return item;
 }
 

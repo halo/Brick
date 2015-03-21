@@ -26,9 +26,15 @@ const NSString *PFAnchorPath = @"/etc/pf.anchors/com.funkensturm.Brick";
 
 + (NSString*) pf {
   NSMutableArray *result = [NSMutableArray new];
+  // By default we block everything
+  [result addObject:[[self blockOutgoingRule] pf]];
+  // Then our custom rules
   for (BrickRule *rule in [self all]) {
+    if (!rule.activated) continue;
     [result addObject:rule.pf];
   }
+  // Lastly, we need to make sure the rules end with a newline to make pf not complain about syntax errors
+  [result addObject:@""];
   return [result componentsJoinedByString:@"\n\n"];
 }
 
@@ -59,6 +65,10 @@ const NSString *PFAnchorPath = @"/etc/pf.anchors/com.funkensturm.Brick";
   rule.comment = [[self backend] stringForKey:[self commentKey:identifier]];
   rule.rules = [[self backend] arrayForKey:[self rulesKey:identifier]];
   return rule;
+}
+
++ (BrickRule*) blockOutgoingRule {
+  return [self findByIdentifier:@"blockout"];
 }
 
 + (NSArray*) identifiers {
