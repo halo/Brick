@@ -36,9 +36,9 @@
 
 - (void) toggleActivation:(NSMenuItem*)sender {
   if ([BrickRules activated]) {
-    [self.brickIntercom removeAllRules];
+    [self deactivate];
   } else {
-    [self.brickIntercom setRules:[BrickRules pf]];
+    [self activate];
   }
 }
 
@@ -63,7 +63,13 @@
 # pragma mark Internal Helpers
 
 - (void) refresh {
+  [Log debug:@"Refreshing..."];
+  [self refreshMenuIcon];
   [self.brickMenu refreshRules];
+  [self refreshHelperStatus];
+}
+
+- (void) refreshHelperStatus {
   [Log debug:@"Checking for helper..."];
   [self usingHelperTool:^(NSInteger helperStatus, NSString *helperVersion) {
     if (helperStatus == HelperReady) {
@@ -74,6 +80,20 @@
       [self.brickMenu unauthorize];
     }
   }];
+}
+
+- (void) refreshFromTimer:sender {
+  [self refresh];
+}
+
+- (void) refreshSoon {
+  [Log debug:@"Refreshing soon..."];
+  [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(refreshFromTimer:) userInfo:nil repeats:NO];
+}
+
+- (void) refreshMenuIcon {
+  statusItem.button.image = self.statusMenuIcon;
+  statusItem.button.alternateImage = self.statusMenuIcon;
 }
 
 - (void) update {
@@ -93,6 +113,16 @@
       block(HelperVersionMismatch, helperVersion);
     }
   }];
+}
+
+- (void) activate {
+  [self.brickIntercom setRules:[BrickRules pf]];
+  [self refreshSoon];
+}
+
+- (void) deactivate {
+  [self.brickIntercom removeAllRules];
+  [self refreshSoon];
 }
 
 # pragma mark Internal Getters
@@ -118,8 +148,6 @@
 - (NSStatusItem*) statusItem {
   if (statusItem) return statusItem;
   statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength];
-  statusItem.button.image = self.statusMenuIcon;
-  statusItem.button.alternateImage = self.statusMenuIcon;
   statusItem.highlightMode = YES;
   statusItem.button.accessibilityTitle = @"Brick";
   return statusItem;

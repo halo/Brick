@@ -43,9 +43,9 @@
   [self removeRules];
   [self addRules];
   if ([BrickRules activated]) {
-    self.activationItem.title = @"Deactivate";
+    self.activationItem.title = @"Deactivate filter";
   } else {
-    self.activationItem.title = @"Activate";
+    self.activationItem.title = @"Activate filter";
   }
 }
 
@@ -75,8 +75,7 @@
 }
 
 - (NSMenuItem*) menuForRule:(BrickRule*)rule {
-  [Log debug:@"Adding rule: %@", rule];
-  [Log debug:@"Name: %@", rule.name];
+  [Log debug:@"Adding rule: %@, %@, actionable: %i", rule.identifier, rule.name, self.authorized];
 
   NSMenuItem *item = [NSMenuItem new];
   item.title = rule.name;
