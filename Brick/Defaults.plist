@@ -4,13 +4,17 @@
 <dict>
 	<key>debug</key>
 	<true/>
-	<key>rules</key>
+	<key>rules.factory</key>
 	<array>
 		<string>loopback</string>
 		<string>rfc1918</string>
 		<string>dns</string>
 		<string>dhcp</string>
 		<string>l2tpipsec</string>
+	</array>
+	<key>rules.user</key>
+	<array>
+		<string>tox</string>
 	</array>
 	<key>rule.blockout.activated</key>
 	<true/>

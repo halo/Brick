@@ -11,6 +11,9 @@ const NSString *DebugFlag = @"debug";
   NSDictionary *defaults = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
   [Log debug:@"Registering default preferences..."];
   [[self backend] registerDefaults:defaults];
+  [Log debug:@"Ensuring empty preferences file on disk..."];
+  [[self backend] setBool:YES forKey:@"booted"];
+  [[self backend] synchronize];
 }
 
 # pragma mark Public Getters

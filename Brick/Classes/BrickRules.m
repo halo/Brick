@@ -2,7 +2,8 @@
 
 #import "BrickRule.h"
 
-const NSString *IdentifiersFlag = @"rules";
+const NSString *FactoryIdentifiersFlag = @"rules.factory";
+const NSString *UserIdentifiersFlag = @"rules.user";
 const NSString *RulePrefix = @"rule";
 const NSString *RuleActivatedSuffix = @"activated";
 const NSString *RuleNameSuffix = @"name";
@@ -72,7 +73,10 @@ const NSString *PFAnchorPath = @"/etc/pf.anchors/com.funkensturm.Brick";
 }
 
 + (NSArray*) identifiers {
-  return [[self backend] arrayForKey:(NSString*)IdentifiersFlag];
+  NSMutableArray *result = [NSMutableArray new];
+  [result addObjectsFromArray:[[self backend] arrayForKey:(NSString*)FactoryIdentifiersFlag]];
+  [result addObjectsFromArray:[[self backend] arrayForKey:(NSString*)UserIdentifiersFlag]];
+  return (NSArray*)result;
 }
 
 + (NSString*) activatedKey:(NSString*)identifier {
