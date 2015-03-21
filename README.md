@@ -119,6 +119,11 @@ defaults write com.funkensturm.Brick rule.ssh.activated -array "pass out on en0 
 
 In the same way you can modify any existing rule that ships with Brick.
 
+## Future work
+
+* Activate on startup (aka one-off LaunchDaemon)
+* Run GUI on startup (aka System Preferences -> User -> StartupItems)
+
 ## Thanks
 
 * The IconWork in the `Link/Images.xcassets` is from [Iconmonstr](http://iconmonstr.com).
