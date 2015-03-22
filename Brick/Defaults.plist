@@ -11,6 +11,7 @@
 		<string>dns</string>
 		<string>dhcp</string>
 		<string>l2tpipsec</string>
+		<string>ppp</string>
 	</array>
 	<key>rules.user</key>
 	<array>
@@ -21,13 +22,11 @@
 	<key>rule.blockout.name</key>
 	<string>Block all outgoing</string>
 	<key>rule.blockout.comment</key>
-	<string>Block everything leaving our Mac</string>
+	<string>Block everything leaving our Mac.</string>
 	<key>rule.blockout.rules</key>
 	<array>
 		<string>block out all</string>
 	</array>
-	<key>rule.rfc1918.activated</key>
-	<false/>
 	<key>rule.rfc1918.name</key>
 	<string>LAN</string>
 	<key>rule.rfc1918.comment</key>
@@ -39,7 +38,50 @@
 	</array>
 	<key>rule.loopback.activated</key>
 	<string>YES</string>
+	<key>rule.loopback.name</key>
+	<string>Localhost</string>
+	<key>rule.loopback.comment</key>
+	<string>Outgoing traffic destined for this very computer.</string>
+	<key>rule.loopback.rules</key>
+	<array>
+		<string>set skip on lo0</string>
+	</array>
 	<key>rule.dns.name</key>
 	<string>DNS</string>
+	<key>rule.dns.comment</key>
+	<string>Outgoing DNS requests, probably needed to resolve your remote VPN server</string>
+	<key>rule.dns.rules</key>
+	<array>
+		<string>pass out on { en0 en1 en2 en3 en4 } proto { udp tcp } from any to any port domain</string>
+	</array>
+	<key>rule.dhcp.name</key>
+	<string>DHCP</string>
+	<key>rule.dhcp.comment</key>
+	<string>Outgoing DHCP requests, useful if you have a USB stick modem.</string>
+	<key>rule.dhcp.rules</key>
+	<array>
+		<string>pass out on { en0 en1 en2 en3 en4 } proto { udp tcp } from any port bootpc to any port bootps</string>
+	</array>
+	<key>rule.l2tpipsec.activated</key>
+	<true/>
+	<key>rule.l2tpipsec.name</key>
+	<string>L2TP/IPSec</string>
+	<key>rule.l2tpipsec.comment</key>
+	<string>Establishment of L2TP over IPSec tunnels</string>
+	<key>rule.l2tpipsec.rules</key>
+	<array>
+		<string>pass out on { en0 en1 en2 en3 en4 } proto udp from any to any port { isakmp l2f ipsec-msft }</string>
+		<string>pass out on { en0 en1 en2 en3 en4 } proto esp from any to any</string>
+	</array>
+	<key>rule.ppp.activated</key>
+	<true/>
+	<key>rule.ppp.name</key>
+	<string>VPN</string>
+	<key>rule.ppp.comment</key>
+	<string>Outgoing traffic through VPN tunnels</string>
+	<key>rule.ppp.rules</key>
+	<array>
+		<string>pass out on ppp0 all</string>
+	</array>
 </dict>
 </plist>

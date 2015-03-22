@@ -19,6 +19,11 @@
   [BrickPreferences loadDefaults];
   self.statusItem.menu = self.brickMenu;
   [self refresh];
+  [self addObservers];
+}
+
+- (void) addObservers {
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillTerminate:) name:NSApplicationWillTerminateNotification object:nil];
 }
 
 # pragma mark Callbacks
@@ -26,6 +31,11 @@
 - (void) menuWillOpen:(NSMenu*)menu {
   [Log debug:@"Menu will open..."];
   [self refresh];
+}
+
+- (void) applicationWillTerminate:(NSNotification*)notification {
+  [Log debug:@"applicationWillTerminate..."];
+  [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 # pragma mark Actions
