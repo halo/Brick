@@ -21,7 +21,7 @@
   [self addItem:self.authorizeHelperItem];
   [self addItem:self.activationItem];
   [self addItem:self.topRulesSeparator];
-    [self addRules];
+  [self addRules];
   [self addSuffixItems];
 }
 

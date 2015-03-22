@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>debug</key>
-	<true/>
+	<false/>
 	<key>rules.factory</key>
 	<array>
 		<string>loopback</string>

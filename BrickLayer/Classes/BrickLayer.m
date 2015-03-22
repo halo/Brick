@@ -56,12 +56,12 @@ const NSString *PFAnchorPath = @"/etc/pf.anchors/com.funkensturm.Brick";
 
 - (void) setRules:(NSString*)rules withReply:(void(^)(BOOL success))reply {
   if (![rules writeToFile:(NSString*)PFAnchorPath atomically:YES encoding:NSUTF8StringEncoding error:nil]) reply(NO);
-  if (![self pfctlWithArguments:@[@"-a", PFAnchorName, @"-f", PFAnchorPath]]) reply(NO);
+  if (![self pfctlWithArguments:@[@"-e", @"-a", PFAnchorName, @"-f", PFAnchorPath]]) reply(NO);
   reply(YES);
 }
 
 - (void) removeAllRulesWithReply:(void(^)(BOOL success))reply {
-  BOOL success = [self pfctlWithArguments:@[@"-a", PFAnchorName, @"-F"]];
+  BOOL success = [self pfctlWithArguments:@[@"-a", PFAnchorName, @"-Fa"]];
   [self deleteFile:(NSString*)PFAnchorPath];
   reply(success);
 }
@@ -117,7 +117,7 @@ const NSString *PFAnchorPath = @"/etc/pf.anchors/com.funkensturm.Brick";
     @"Disabled": @NO,
     @"Label": launchdLabel,
     @"Program": @"/sbin/pfctl",
-    @"ProgramArguments": @[@"/sbin/pfctl", @"-a", PFAnchorName, @"-f", PFAnchorPath],
+    @"ProgramArguments": @[@"/sbin/pfctl", @"-e", @"-a", PFAnchorName, @"-f", PFAnchorPath],
     @"RunAtLoad": @YES,
   };
   NSData *plistData = [NSPropertyListSerialization dataWithPropertyList:plistDictionary format:NSPropertyListXMLFormat_v1_0 options:0 error:nil];

@@ -26,11 +26,9 @@ Grap the latest release of [Brick.app.zip](https://github.com/halo/Brick/release
 ## Are you going to mess up my Mac?
 
 No. The philosophy of Brick is to **never modify existing files** and to be as unobstrusive as possible.
-Also, Brick will never start or stop your firewall:
-it is assumed that your `pf` firewall is up and running at boot, which is the default for Yosemite.
 
 So, Brick will not modify your `/etc/pf.conf`.
-It will, however, dynamically add or remove `pf` rules (yet without breaking the built-in Apple rules).
+It will, however, dynamically add or remove `pf` rules (yet without breaking the built-in Apple rules) and also start pf using `pfctl -e`.
 Brick simply adds an anchor with the namespace `com.apple/249.Brick`.
 Since all `com.apple/*` rules are loaded by default, Brick will also be loaded by default without messing up your existing rules.
 
@@ -119,9 +117,20 @@ defaults write com.funkensturm.Brick rule.ssh.activated -array "pass out on en0 
 
 In the same way you can modify any existing rule that ships with Brick.
 
+## Troubleshooting
+
+To see which Brick rules are currently active in `pf`, you can use the following command:
+
+```bash
+sudo pfctl -a "com.apple/249.Brick" -sr
+```
+
 ## Future work
 
+* Proper help
+* Logger for blocked packets
 * Unit Tests
+* More intuitive icon, I guess
 
 ## Thanks
 
