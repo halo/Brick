@@ -49,11 +49,23 @@
 }
 
 - (void) getHelp:(NSMenuItem*)sender {
-  
+  NSString *description = [NSString stringWithFormat:@"For now, I refer to https://github.com/halo/Brick\n\nYou are currently running version %@ \n\nYour preferences are stored in %@\n\nHold the ⌥ key while the menu is open to see extra menu items.", [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString*)kCFBundleVersionKey], [BrickPreferences preferencesFilePath]];
+  NSAlert *alert = [NSAlert alertWithMessageText:@"Help!" defaultButton:@"Thanks" alternateButton:nil otherButton:nil informativeTextWithFormat:@"%@", description];
+  [alert runModal];
 }
 
 - (void) toggleDebugMode:(NSMenuItem*)sender {
   
+}
+
+- (void) toggleRememberOnReboot:(NSMenuItem*)sender {
+  if ([BrickPreferences rememberingOnReboot]) {
+    [Log debug:@"Deleting launchdaemon..."];
+    [self.brickIntercom deactivateOnStartup];
+  } else {
+    [Log debug:@"Creating launchdaemon..."];
+    [self.brickIntercom activateOnStartup];
+  }
 }
 
 - (void) toggleLogin:(NSMenuItem*)sender {
@@ -65,7 +77,7 @@
 - (void) refresh {
   [Log debug:@"Refreshing..."];
   [self refreshMenuIcon];
-  [self.brickMenu refreshRules];
+  [self.brickMenu refresh];
   [self refreshHelperStatus];
 }
 

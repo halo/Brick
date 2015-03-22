@@ -8,6 +8,11 @@ typedef NS_ENUM(NSInteger, MenuItemKind) {
 @property (readonly) NSMenuItem* activationItem;
 @property (readonly) NSMenuItem* authorizeHelperItem;
 @property (readonly) NSMenuItem* topRulesSeparator;
+@property (readonly) NSMenuItem* rememberOnRebootItem;
+@property (readonly) NSMenuItem* preferencesItem;
+@property (readonly) NSMenu* preferencesSubMenu;
+@property (readonly) NSMenuItem* helpItem;
+@property (readonly) NSMenuItem* quitItem;
 @property (readonly) NSInteger topRuleIndex;
 @property (atomic) BOOL authorized;
 
@@ -19,6 +24,6 @@ typedef NS_ENUM(NSInteger, MenuItemKind) {
 
 - (void) authorize;
 - (void) unauthorize;
-- (void) refreshRules;
+- (void) refresh;
 
 @end

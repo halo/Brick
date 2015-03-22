@@ -2,6 +2,9 @@
 
 const NSString *DebugFlag = @"debug";
 
+// Duplicated in BrickLayer
+const NSString *launchDaemonPlistPath = @"/Library/LaunchDaemons/com.funkensturm.Brick.plist";
+
 @implementation BrickPreferences
 
 # pragma mark Initialization
@@ -22,15 +25,27 @@ const NSString *DebugFlag = @"debug";
   return [[self backend] boolForKey:(NSString*)DebugFlag];
 }
 
++ (BOOL) rememberingOnReboot {
+  return [[NSFileManager defaultManager] fileExistsAtPath:(NSString*)launchDaemonPlistPath];
+}
+
++ (NSString*) preferencesFilePath {
+  NSArray *path = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+  NSString *folder = [path objectAtIndex:0];
+  NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
+  NSString *filename = [NSString stringWithFormat:@"%@.plist", bundleIdentifier];
+  return [[folder stringByAppendingPathComponent:@"Preferences"] stringByAppendingPathComponent:filename];
+}
+
 # pragma mark Public Setters
 
 + (void) toggleDebugMode {
-  if (self.debugMode) {
+  if ([self debugMode]) {
     [Log debug:@"Deactivating Debug Mode..."];
-    //[self removeObjectForKey:(NSString*)DebugFlag];
+    [[self backend] setBool:YES forKey:(NSString*)DebugFlag];
   } else {
     [Log debug:@"Activating Debug Mode..."];
-    //[self setObject:DebugFlag forKey:(NSString*)DebugFlag];
+    [[self backend] setBool:NO forKey:(NSString*)DebugFlag];
   }
 }
 

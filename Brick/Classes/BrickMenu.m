@@ -11,6 +11,7 @@
 @synthesize authorized;
 @synthesize authorizeHelperItem, activationItem, topRulesSeparator;
 @synthesize topRuleIndex;
+@synthesize preferencesItem, preferencesSubMenu, rememberOnRebootItem, helpItem, quitItem;
 
 # pragma mark Initialization
 
@@ -30,6 +31,7 @@
   self.authorized = YES;
   self.authorizeHelperItem.hidden = YES;
   self.activationItem.hidden = NO;
+  self.preferencesItem.hidden = NO;
 }
 
 - (void) unauthorize {
@@ -37,6 +39,19 @@
   self.authorized = NO;
   self.authorizeHelperItem.hidden = NO;
   self.activationItem.hidden = YES;
+  self.preferencesItem.hidden = YES;
+}
+
+- (void) refresh {
+  [self refreshPreferences];
+  [self refreshRules];
+}
+
+# pragma mark Internal Helpers
+
+- (void) refreshPreferences {
+  [Log debug:@"Refreshing preferences menu..."];
+  self.rememberOnRebootItem.state = [BrickPreferences rememberingOnReboot];
 }
 
 - (void) refreshRules {
@@ -48,8 +63,6 @@
     self.activationItem.title = @"Activate filter";
   }
 }
-
-# pragma mark Internal Helpers
 
 - (void) removeRules {
   for (NSMenuItem *item in self.itemArray) {
@@ -94,8 +107,9 @@
 
 - (void) addSuffixItems {
   [self addItem:[NSMenuItem separatorItem]];
-  [self addItem:[self helpItem]];
-  [self addItem:[self quitItem]];
+  [self addItem:self.preferencesItem];
+  [self addItem:self.helpItem];
+  [self addItem:self.quitItem];
 }
 
 - (NSMenuItem*) activationItem {
@@ -119,14 +133,40 @@
   return topRulesSeparator;
 }
 
+- (NSMenuItem*) preferencesItem {
+  if (preferencesItem) return preferencesItem;
+  preferencesItem = [[NSMenuItem alloc] initWithTitle:@"Preferences" action:nil keyEquivalent:@""];
+  preferencesItem.submenu = self.preferencesSubMenu;
+  preferencesItem.hidden = YES;
+  return preferencesItem;
+}
+
+- (NSMenu*) preferencesSubMenu {
+  if (preferencesSubMenu) return preferencesSubMenu;
+  preferencesSubMenu = [NSMenu new];
+  [preferencesSubMenu addItem:self.rememberOnRebootItem];
+  return preferencesSubMenu;
+}
+
+- (NSMenuItem*) rememberOnRebootItem {
+  if (rememberOnRebootItem) return rememberOnRebootItem;
+  rememberOnRebootItem = [[NSMenuItem alloc] initWithTitle:@"Remember on reboot" action:@selector(toggleRememberOnReboot:) keyEquivalent:@""];
+  rememberOnRebootItem.target = self.delegate;
+  return rememberOnRebootItem;
+}
+
 - (NSMenuItem*) helpItem {
-  NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:@"Help" action:@selector(getHelp:) keyEquivalent:@""];
-  item.target = self.delegate;
-  return item;
+  if (helpItem) return helpItem;
+  helpItem = [[NSMenuItem alloc] initWithTitle:@"Help" action:@selector(getHelp:) keyEquivalent:@""];
+  helpItem.target = self.delegate;
+  return helpItem;
 }
 
 - (NSMenuItem*) quitItem {
-  return [[NSMenuItem alloc] initWithTitle:@"Quit" action:@selector(terminate:) keyEquivalent:@""];
+  if (quitItem) return quitItem;
+  quitItem = [[NSMenuItem alloc] initWithTitle:@"Quit" action:@selector(terminate:) keyEquivalent:@""];
+  helpItem.target = self.delegate;
+  return quitItem;
 }
 
 @end

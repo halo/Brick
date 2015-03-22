@@ -31,7 +31,7 @@ it is assumed that your `pf` firewall is up and running at boot, which is the de
 
 So, Brick will not modify your `/etc/pf.conf`.
 It will, however, dynamically add or remove `pf` rules (yet without breaking the built-in Apple rules).
-Brick simply adds an anchor with the namespace `com.apple/251.Brick`.
+Brick simply adds an anchor with the namespace `com.apple/249.Brick`.
 Since all `com.apple/*` rules are loaded by default, Brick will also be loaded by default without messing up your existing rules.
 
 Brick will create the **independent** file `/etc/pf.anchors/com.funkensturm.Brick` just to persist your chosen configuration across reboots.

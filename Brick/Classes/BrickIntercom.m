@@ -138,11 +138,33 @@
 }
 
 - (void) activateOnStartup {
-  [Log debug:@"Simulating startup activation..."];
+  [Log debug:@"Activating on startup......"];
+  [self connectAndExecuteCommandBlock:^(NSError *connectError) {
+    if (connectError != nil) {
+      [Log debug:@"connectError: %@", connectError.localizedDescription];
+    } else {
+      [[self.helperToolConnection remoteObjectProxyWithErrorHandler:^(NSError *proxyError) {
+        [Log debug:@"ProxyError: %@", proxyError.localizedDescription];
+      }] activateOnStartupWithReply:^(BOOL success) {
+        [Log debug:@"reply = %li", success];
+      }];
+    }
+  }];
 }
 
 - (void) deactivateOnStartup {
-  [Log debug:@"Simulating startup deactivation..."];
+  [Log debug:@"Deactivating on startup......"];
+  [self connectAndExecuteCommandBlock:^(NSError *connectError) {
+    if (connectError != nil) {
+      [Log debug:@"connectError: %@", connectError.localizedDescription];
+    } else {
+      [[self.helperToolConnection remoteObjectProxyWithErrorHandler:^(NSError *proxyError) {
+        [Log debug:@"ProxyError: %@", proxyError.localizedDescription];
+      }] deactivateOnStartupWithReply:^(BOOL success) {
+        [Log debug:@"reply = %li", success];
+      }];
+    }
+  }];
 }
 
 - (AuthorizationRef) createAuthRef {
