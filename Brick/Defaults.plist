@@ -11,7 +11,7 @@
 		<string>dns</string>
 		<string>dhcp</string>
 		<string>l2tpipsec</string>
-		<string>ppp</string>
+		<string>vpn</string>
 	</array>
 	<key>rules.user</key>
 	<array>
@@ -73,15 +73,15 @@
 		<string>pass out on { en0 en1 en2 en3 en4 } proto udp from any to any port { isakmp l2f ipsec-msft }</string>
 		<string>pass out on { en0 en1 en2 en3 en4 } proto esp from any to any</string>
 	</array>
-	<key>rule.ppp.activated</key>
+	<key>rule.vpn.activated</key>
 	<true/>
-	<key>rule.ppp.name</key>
+	<key>rule.vpn.name</key>
 	<string>VPN</string>
-	<key>rule.ppp.comment</key>
+	<key>rule.vpn.comment</key>
 	<string>Outgoing traffic through VPN tunnels</string>
-	<key>rule.ppp.rules</key>
+	<key>rule.vpn.rules</key>
 	<array>
-		<string>pass out on ppp0 all</string>
+		<string>pass out on { tun0 ppp0 } all</string>
 	</array>
 </dict>
 </plist>

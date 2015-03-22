@@ -82,6 +82,8 @@ It's conveniently separated into two sets. You should add your own rules to the 
 When a new Brick version is released, and you did not override the `rules.factory` settings, you automatically pick up the updated factory rules.
 It is no problem, however, to override that factory Array, too, if you don't feel comfortable with the default set.
 
+Note that there is a rule called `rule.blockout`, which is not visible in the menu, but it is the rule which blocks all outgoing traffic by default. You can edit that one, too if you really need to. That would also be the place to block all incoming traffic if you like.
+
 So let's add a custom rule to allow outgoing SSH traffic.
 
 ```bash
@@ -138,6 +140,10 @@ In the same way you can modify any existing rule that ships with Brick.
 * Logger for blocked packets
 * Unit Tests
 * More intuitive icon, I guess
+
+## Development
+
+Just open the project in Xcode and run it. There are no external dependencies.
 
 ## Thanks
 
