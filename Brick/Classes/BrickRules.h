@@ -5,6 +5,7 @@
 + (NSArray*) all;
 + (NSString*) pf;
 + (BOOL) activated;
++ (NSString*) anchorFilePath;
 
 # pragma mark Public Setters
 

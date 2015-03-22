@@ -9,6 +9,8 @@
 + (BOOL) debugMode;
 + (BOOL) rememberingOnReboot;
 + (NSString*) preferencesFilePath;
++ (NSString*) defaultsFilePath;
++ (NSString*) launchDaemonFilePath;
 
 # pragma mark Public Setters
 

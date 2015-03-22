@@ -10,8 +10,7 @@ const NSString *launchDaemonPlistPath = @"/Library/LaunchDaemons/com.funkensturm
 # pragma mark Initialization
 
 + (void) loadDefaults {
-  NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Defaults" ofType:@"plist"];
-  NSDictionary *defaults = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
+  NSDictionary *defaults = [[NSDictionary alloc] initWithContentsOfFile:[self defaultsFilePath]];
   [Log debug:@"Registering default preferences..."];
   [[self backend] registerDefaults:defaults];
   [Log debug:@"Ensuring empty preferences file on disk..."];
@@ -26,7 +25,7 @@ const NSString *launchDaemonPlistPath = @"/Library/LaunchDaemons/com.funkensturm
 }
 
 + (BOOL) rememberingOnReboot {
-  return [[NSFileManager defaultManager] fileExistsAtPath:(NSString*)launchDaemonPlistPath];
+  return [[NSFileManager defaultManager] fileExistsAtPath:[self launchDaemonFilePath]];
 }
 
 + (NSString*) preferencesFilePath {
@@ -35,6 +34,14 @@ const NSString *launchDaemonPlistPath = @"/Library/LaunchDaemons/com.funkensturm
   NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
   NSString *filename = [NSString stringWithFormat:@"%@.plist", bundleIdentifier];
   return [[folder stringByAppendingPathComponent:@"Preferences"] stringByAppendingPathComponent:filename];
+}
+
++ (NSString*) defaultsFilePath {
+  return [[NSBundle mainBundle] pathForResource:@"Defaults" ofType:@"plist"];
+}
+
++ (NSString*) launchDaemonFilePath {
+  return (NSString*)launchDaemonPlistPath;
 }
 
 # pragma mark Public Setters

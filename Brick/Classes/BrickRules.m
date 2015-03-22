@@ -40,7 +40,11 @@ const NSString *PFAnchorPath = @"/etc/pf.anchors/com.funkensturm.Brick";
 }
 
 + (BOOL) activated {
-  return [[NSFileManager defaultManager] fileExistsAtPath:(NSString*)PFAnchorPath];
+  return [[NSFileManager defaultManager] fileExistsAtPath:[self anchorFilePath]];
+}
+
++ (NSString*) anchorFilePath {
+  return (NSString*)PFAnchorPath;
 }
 
 # pragma mark Public Setters
