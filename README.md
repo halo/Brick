@@ -121,8 +121,7 @@ In the same way you can modify any existing rule that ships with Brick.
 
 ## Future work
 
-* Activate on startup (aka one-off LaunchDaemon)
-* Run GUI on startup (aka System Preferences -> User -> StartupItems)
+* Unit Tests
 
 ## Thanks
 

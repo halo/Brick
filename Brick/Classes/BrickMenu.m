@@ -5,12 +5,13 @@
 #import "BrickRules.h"
 #import "BrickPreferences.h"
 #import "NSBundle+LoginItem.h"
+#import "NSBundle+LoginItem.h"
 
 @implementation BrickMenu
 
 @synthesize authorized;
 @synthesize authorizeHelperItem, activationItem, topRulesSeparator;
-@synthesize topRuleIndex;
+@synthesize topRuleIndex, launchOnLoginItem;
 @synthesize preferencesItem, preferencesSubMenu, rememberOnRebootItem, helpItem, quitItem;
 
 # pragma mark Initialization
@@ -20,7 +21,7 @@
   [self addItem:self.authorizeHelperItem];
   [self addItem:self.activationItem];
   [self addItem:self.topRulesSeparator];
-  [self addRules];
+    [self addRules];
   [self addSuffixItems];
 }
 
@@ -52,6 +53,7 @@
 - (void) refreshPreferences {
   [Log debug:@"Refreshing preferences menu..."];
   self.rememberOnRebootItem.state = [BrickPreferences rememberingOnReboot];
+  self.launchOnLoginItem.state = [[NSBundle mainBundle] isLoginItem];
 }
 
 - (void) refreshRules {
@@ -145,6 +147,7 @@
   if (preferencesSubMenu) return preferencesSubMenu;
   preferencesSubMenu = [NSMenu new];
   [preferencesSubMenu addItem:self.rememberOnRebootItem];
+  [preferencesSubMenu addItem:self.launchOnLoginItem];
   return preferencesSubMenu;
 }
 
@@ -153,6 +156,13 @@
   rememberOnRebootItem = [[NSMenuItem alloc] initWithTitle:@"Remember on reboot" action:@selector(toggleRememberOnReboot:) keyEquivalent:@""];
   rememberOnRebootItem.target = self.delegate;
   return rememberOnRebootItem;
+}
+
+- (NSMenuItem*) launchOnLoginItem {
+  if (launchOnLoginItem) return launchOnLoginItem;
+  launchOnLoginItem = [[NSMenuItem alloc] initWithTitle:@"Launch GUI on login" action:@selector(toggleLogin:) keyEquivalent:@""];
+  launchOnLoginItem.target = self.delegate;
+  return launchOnLoginItem;
 }
 
 - (NSMenuItem*) helpItem {

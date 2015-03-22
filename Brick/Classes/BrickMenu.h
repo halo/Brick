@@ -9,6 +9,7 @@ typedef NS_ENUM(NSInteger, MenuItemKind) {
 @property (readonly) NSMenuItem* authorizeHelperItem;
 @property (readonly) NSMenuItem* topRulesSeparator;
 @property (readonly) NSMenuItem* rememberOnRebootItem;
+@property (readonly) NSMenuItem* launchOnLoginItem;
 @property (readonly) NSMenuItem* preferencesItem;
 @property (readonly) NSMenu* preferencesSubMenu;
 @property (readonly) NSMenuItem* helpItem;

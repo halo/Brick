@@ -5,6 +5,7 @@
 #import "BrickLayer.h"
 #import "BrickRules.h"
 #import "BrickPreferences.h"
+#import "NSBundle+LoginItem.h"
 
 @implementation BrickController
 
@@ -69,7 +70,11 @@
 }
 
 - (void) toggleLogin:(NSMenuItem*)sender {
-  
+  if ([[NSBundle mainBundle] isLoginItem]) {
+    [[NSBundle mainBundle] removeFromLoginItems];
+  } else {
+    [[NSBundle mainBundle] addToLoginItems];
+  }
 }
 
 # pragma mark Internal Helpers

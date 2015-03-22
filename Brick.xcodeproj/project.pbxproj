@@ -18,6 +18,7 @@
 		C24256111A743D6F00CE573A /* BrickController.m in Sources */ = {isa = PBXBuildFile; fileRef = C24256101A743D6F00CE573A /* BrickController.m */; };
 		C242561A1A743F4000CE573A /* BrickLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C24256181A743F4000CE573A /* BrickLayer.m */; };
 		C242561B1A743F4000CE573A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C24256191A743F4000CE573A /* main.m */; };
+		C24D596E1ABECC6500EA9A0B /* NSBundle+LoginItem.h in Sources */ = {isa = PBXBuildFile; fileRef = C2D9363C1AB46A030020968B /* NSBundle+LoginItem.h */; };
 		C25B390B1AB8BE2500E66AA5 /* BrickRules.m in Sources */ = {isa = PBXBuildFile; fileRef = C25B390A1AB8BE2500E66AA5 /* BrickRules.m */; };
 		C270ECF31A76D04300F132F7 /* BrickPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = C270ECF21A76D04300F132F7 /* BrickPreferences.m */; };
 		C2CA14851A744B5F006746DD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2CA14841A744B5F006746DD /* MainMenu.xib */; };
@@ -98,7 +99,6 @@
 		C2CA150F1A75581B006746DD /* BrickIntercom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrickIntercom.m; path = Classes/BrickIntercom.m; sourceTree = "<group>"; };
 		C2D9363C1AB46A030020968B /* NSBundle+LoginItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+LoginItem.h"; sourceTree = "<group>"; };
 		C2D9363D1AB46A030020968B /* NSBundle+LoginItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+LoginItem.m"; sourceTree = "<group>"; };
-		C2D9363E1AB46A030020968B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C2D936461AB4855C0020968B /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		C2D936481AB487210020968B /* BrickRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BrickRule.h; path = Classes/BrickRule.h; sourceTree = "<group>"; };
 		C2D936491AB487210020968B /* BrickRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrickRule.m; path = Classes/BrickRule.m; sourceTree = "<group>"; };
@@ -280,7 +280,6 @@
 			children = (
 				C2D9363C1AB46A030020968B /* NSBundle+LoginItem.h */,
 				C2D9363D1AB46A030020968B /* NSBundle+LoginItem.m */,
-				C2D9363E1AB46A030020968B /* README.md */,
 			);
 			path = IYLoginItem;
 			sourceTree = "<group>";
@@ -370,6 +369,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C24D596E1ABECC6500EA9A0B /* NSBundle+LoginItem.h in Sources */,
 				C270ECF31A76D04300F132F7 /* BrickPreferences.m in Sources */,
 				C2CA149C1A74F7DB006746DD /* BrickMenu.m in Sources */,
 				C242560E1A743D3C00CE573A /* main.m in Sources */,
