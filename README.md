@@ -12,7 +12,7 @@ Under the hood, it's just a dummy-proof, configurable, done-right graphical inte
 
 If you like this project, feel free to give it a ★ in the top right corner.
 
-![Screenshot](https://cdn.rawgit.com/halo/Brick/master/doc/screenshot.png)
+![Screenshot](https://cdn.rawgit.com/halo/Brick/master/doc/screenshot.0.0.1.png)
 
 ## Requirements
 

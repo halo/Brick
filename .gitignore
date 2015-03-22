@@ -1,5 +1,4 @@
 build
-doc
 *.xcodeproj/*.pbxuser
 *.xcodeproj/*.perspectivev3
 *.xcodeproj/xcuserdata
@@ -13,4 +12,3 @@ doc
 *.xcworkspacedata
 *.xcuserstate
 *xcuserdata*
-*.gem
