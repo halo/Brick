@@ -27,13 +27,13 @@ Grap the latest release of [Brick.app.zip](https://github.com/halo/Brick/release
 
 No. The philosophy of Brick is to **never modify existing files** and to be as unobstrusive as possible.
 
-So, Brick will not modify your `/etc/pf.conf`.
-It will, however, dynamically add or remove `pf` rules (yet without breaking the built-in Apple rules) and also start pf using `pfctl -e`.
+Brick will *not* modify your `/etc/pf.conf`.
+It will, however, dynamically add or remove `pf` rules (yet without breaking the built-in Apple rules) and also start `pf` using `pfctl -e`.
 Brick simply adds an anchor with the namespace `com.apple/249.Brick`.
 Since all `com.apple/*` rules are loaded by default, Brick will also be loaded by default without messing up your existing rules.
 
 Brick will create the **independent** file `/etc/pf.anchors/com.funkensturm.Brick` just to persist your chosen configuration across reboots.
-Should you choose to activate Brick at startup, the launch deamon `/Library/LaunchDaemons/com.funkensturm.Brick.plist"` will be created and dynamically inject the configuration file into the mentioned anchor namespace once.
+Should you choose to activate Brick at startup, the launch deamon `/Library/LaunchDaemons/com.funkensturm.Brick.plist` will be created and dynamically inject the configuration file into the mentioned anchor namespace once and start `pf`.
 
 ## Uninstall/Upgrade
 
@@ -48,16 +48,31 @@ sudo rm /Library/PrivilegedHelperTools/com.funkensturm.BrickLayer
 ## Limitations
 
 * If you reconfigure your pf firewall manually, the Brick rules will be lost. You would have to activate Brick again for the changes to take effect again.
-  To be clear: if you use the `pf -f` flag, your main and dynamic rules will be lost, as that is what this command does.
+  To be clear: if you use the `pfctl -f` flag, dynamic rules will be lost, as that is what this command does.
+* The detection for whether the firewall is active or not relies on no manual interference, so if you mess with things yourself, the menu icon may not reflect reality (example: If you stop the firewall with `pfctl -d`, Brick will still look like `pf` is running. Reactivating Brick will enable the proper state again).
 
-## Configuration
+## Troubleshooting
 
-Note: If anything is unclear in this Readme, I expect you create a Github issue with your question so that we can improve this Readme together.
+To see which Brick rules are currently active in `pf`, you can use the following command:
+
+```bash
+sudo pfctl -a "com.apple/249.Brick" -sr
+```
+
+To make Brick log to your `Console` app, activate the debug mode like so:
+
+```bash
+defaults write com.funkensturm.Brick debug --bool yes
+```
+
+## Configuration (advanced users)
+
+**Note:** If anything is unclear in this Readme, I expect you create a Github issue with your question so that we can improve this Readme together.
 
 Brick comes with a small set of default firewall rules you can choose to activate.
 If you are comfortable with how `pf` works, you can configure just about anything the way you want.
 The configuration is stored in the OS X Foundation `defaults` system, that is `~/Library/Preferences/com.funkensturm.Brick`.
-There is no GUI for the configuration so as to keep Brick as simple and flexible as possible.
+There is no GUI for the configuration ifself so as to keep Brick as simple and flexible as possible.
 
 I recommend you take a look at the [default preferences](https://github.com/halo/Brick/blob/master/Brick/Defaults.plist) to begin with.
 
@@ -116,14 +131,6 @@ defaults write com.funkensturm.Brick rule.ssh.activated -array "pass out on en0 
 ```
 
 In the same way you can modify any existing rule that ships with Brick.
-
-## Troubleshooting
-
-To see which Brick rules are currently active in `pf`, you can use the following command:
-
-```bash
-sudo pfctl -a "com.apple/249.Brick" -sr
-```
 
 ## Future work
 
