@@ -111,7 +111,7 @@ defaults write com.funkensturm.Brick rule.ssh.name "SSH"
 defaults write com.funkensturm.Brick rule.ssh.comment "Outgoing secure-shell sessions"
 
 # Define the pf rules as an Array of Strings
-defaults write com.funkensturm.Brick rule.ssh.activated -array "pass out on en0 from any to any port 22" "pass out on en1 from any to any port 22"
+defaults write com.funkensturm.Brick rule.ssh.rules -array "pass out on en0 from any to any port 22" "pass out on en1 from any to any port 22"
 ```
 
 That's it! You're ready to use your rule. You don't even need to restart Brick.
@@ -129,7 +129,7 @@ defaults write com.funkensturm.Brick rule.ssh.activated -bool yes
 defaults write com.funkensturm.Brick rule.ssh.comment "Outgoing secure-shell sessions"
 
 # Define the pf rules (just like above)
-defaults write com.funkensturm.Brick rule.ssh.activated -array "pass out on en0 from any to any port 22" "pass out on en1 from any to any port 22"
+defaults write com.funkensturm.Brick rule.ssh.rules -array "pass out on en0 from any to any port 22" "pass out on en1 from any to any port 22"
 ```
 
 In the same way you can modify any existing rule that ships with Brick.
