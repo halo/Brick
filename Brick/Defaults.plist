@@ -7,6 +7,7 @@
 	<key>rules.factory</key>
 	<array>
 		<string>loopback</string>
+		<string>blockout</string>
 		<string>rfc1918</string>
 		<string>dns</string>
 		<string>dhcp</string>
@@ -19,8 +20,6 @@
 	</array>
 	<key>rule.blockout.activated</key>
 	<true/>
-	<key>rule.blockout.name</key>
-	<string>Block all outgoing</string>
 	<key>rule.blockout.comment</key>
 	<string>Block everything leaving our Mac.</string>
 	<key>rule.blockout.rules</key>
@@ -82,6 +81,30 @@
 	<key>rule.vpn.rules</key>
 	<array>
 		<string>pass out on { tun0 ppp0 } all</string>
+	</array>
+	<key>rule.mumble.name</key>
+	<string>Mumble</string>
+	<key>rule.mumble.comment</key>
+	<string>Mumble Voicechat</string>
+	<key>rule.mumble.rules</key>
+	<array>
+		<string>pass out on { en0 en1 en2 en3 en4 } proto { udp tcp } from any to any port 64738</string>
+	</array>
+	<key>rule.sc2.name</key>
+	<string>SCII</string>
+	<key>rule.sc2.comment</key>
+	<string>Star Craft II</string>
+	<key>rule.sc2.rules</key>
+	<array>
+		<string>pass out on { en0 en1 en2 en3 en4 } proto { udp tcp } from any to any port { 443 1119 1120  3724 4000 6112 6113 6114 }</string>
+	</array>
+	<key>rule.tox.name</key>
+	<string>Tox</string>
+	<key>rule.tox.comment</key>
+	<string>Tox Video Chat (tox.im)</string>
+	<key>rule.tox.rules</key>
+	<array>
+		<string>pass out { en0 en1 en2 en3 en4 } proto { udp } from any to any port { 33445 3389 }</string>
 	</array>
 </dict>
 </plist>

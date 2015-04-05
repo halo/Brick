@@ -28,12 +28,7 @@ Grap the latest release of [Brick.app.zip](https://github.com/halo/Brick/release
 No. The philosophy of Brick is to **never modify existing files** and to be as unobstrusive as possible.
 
 Brick will *not* modify your `/etc/pf.conf`.
-It will, however, dynamically add or remove `pf` rules (yet without breaking the built-in Apple rules) and also start `pf` using `pfctl -e`.
-Brick simply adds an anchor with the namespace `com.apple/249.Brick`.
-Since all `com.apple/*` rules are loaded by default, Brick will also be loaded by default without messing up your existing rules.
-
-Brick will create the **independent** file `/etc/pf.anchors/com.funkensturm.Brick` just to persist your chosen configuration across reboots.
-Should you choose to activate Brick at startup, the launch deamon `/Library/LaunchDaemons/com.funkensturm.Brick.plist` will be created and dynamically inject the configuration file into the mentioned anchor namespace once and start `pf`.
+It will, however, create a `/etc/pf.anchors/com.funkensturm.Brick` and load those as rules instead.
 
 ## Uninstall/Upgrade
 
