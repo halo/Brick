@@ -1,3 +1,7 @@
+# 0.1.1
+
+* [FEATURE] Added utun0 to the list of VPN-related outgoing interfaces.
+
 # 0.1.0
 
 * [CHANGE] Don't inject rules into com.apple, just enforce them instead.

@@ -80,7 +80,7 @@
 	<string>Outgoing traffic through VPN tunnels</string>
 	<key>rule.vpn.rules</key>
 	<array>
-		<string>pass out on { tun0 ppp0 } all</string>
+		<string>pass out on { tun0 ppp0 utun0 } all</string>
 	</array>
 	<key>rule.mumble.name</key>
 	<string>Mumble</string>
