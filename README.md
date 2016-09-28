@@ -140,6 +140,13 @@ In the same way you can modify any existing rule that ships with Brick.
 
 Just open the project in Xcode and run it. There are no external dependencies.
 
+[Overview of all ports](https://support.apple.com/en-us/HT202944) used by Apple.
+
+`
+cat /etc/services
+cat /etc/protocols
+`
+
 ## Thanks
 
 * The IconWork in the `Link/Images.xcassets` is from [Iconmonstr](http://iconmonstr.com).

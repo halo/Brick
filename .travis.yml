@@ -3,6 +3,5 @@ language: objective-c
 xcode_project: Brick.xcodeproj
 xcode_scheme: Brick
 
-# http://stackoverflow.com/questions/27671854
 script:
   - xctool -scheme Brick clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
