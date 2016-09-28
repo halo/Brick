@@ -60,13 +60,13 @@
 }
 
 - (void) getHelp:(NSMenuItem*)sender {
-  NSString *description = [NSString stringWithFormat:@"For now, I refer to https://github.com/halo/Brick\n\nYou are currently running version %@ \n\nYour preferences are stored in %@\n\nYou can find the default preferences in %@\n\nOnce activated, the pf anchor is located at %@\n\nWhen remember on reboot is activated, the launchDaemon is lcoated at %@", [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString*)kCFBundleVersionKey], [BrickPreferences preferencesFilePath], [BrickPreferences defaultsFilePath], [BrickRules anchorFilePath], [BrickPreferences launchDaemonFilePath]];
+  NSString *description = [NSString stringWithFormat:@"For now, I refer to https://github.com/halo/Brick\n\nYou are currently running version %@ \n\nYour preferences are stored in %@\n\nYou can find the default preferences in %@\n\nOnce activated, the pf anchor is located at %@\n\nWhen remember on reboot is activated, the launchDaemon is located at %@", [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString*)kCFBundleVersionKey], [BrickPreferences preferencesFilePath], [BrickPreferences defaultsFilePath], [BrickRules anchorFilePath], [BrickPreferences launchDaemonFilePath]];
   NSAlert *alert = [NSAlert alertWithMessageText:@"Help!" defaultButton:@"Thanks" alternateButton:nil otherButton:nil informativeTextWithFormat:@"%@", description];
   [alert runModal];
 }
 
 - (void) toggleDebugMode:(NSMenuItem*)sender {
-  
+
 }
 
 - (void) toggleRememberOnReboot:(NSMenuItem*)sender {

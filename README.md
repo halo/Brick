@@ -93,7 +93,7 @@ open ~/Library/Preferences/com.funkensturm.Brick.plist
 ```
 
 (Note that you can add multiple rules at the same time with e.g. `-array ssh skype dota`.
-You will need to do this if you have ultiple rules, because this command overwrites the array each time. Try to avoid spaces in the identifiers.)
+You will need to do this if you have multiple rules, because this command overwrites the array each time. Try to avoid spaces in the identifiers.)
 
 Now Brick knows about the two new rules, but they don't show up in the Menu yet. Let's add some information about the rules.
 
@@ -147,4 +147,4 @@ Just open the project in Xcode and run it. There are no external dependencies.
 
 ## License
 
-MIT 2015 halo See [MIT-LICENSE](https://github.com/halo/Brick/blob/master/LICENSE.md).
+MIT 2016 halo See [MIT-LICENSE](https://github.com/halo/Brick/blob/master/LICENSE.md).
