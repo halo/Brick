@@ -16,7 +16,6 @@
 	</array>
 	<key>rules.user</key>
 	<array>
-		<string>tox</string>
 	</array>
 	<key>rule.blockout.activated</key>
 	<true/>
@@ -24,7 +23,7 @@
 	<string>Block everything leaving our Mac.</string>
 	<key>rule.blockout.rules</key>
 	<array>
-		<string>block out all</string>
+		<string>block out all log</string>
 	</array>
 	<key>rule.rfc1918.name</key>
 	<string>LAN</string>
@@ -66,7 +65,7 @@
 	<key>rule.l2tpipsec.name</key>
 	<string>L2TP/IPSec</string>
 	<key>rule.l2tpipsec.comment</key>
-	<string>Establishment of L2TP over IPSec tunnels</string>
+	<string>Establishment of L2TP over IPSec and Cisco IPSec tunnels</string>
 	<key>rule.l2tpipsec.rules</key>
 	<array>
 		<string>pass out on { en0 en1 en2 en3 en4 } proto udp from any to any port { isakmp l2f ipsec-msft }</string>
@@ -80,31 +79,7 @@
 	<string>Outgoing traffic through VPN tunnels</string>
 	<key>rule.vpn.rules</key>
 	<array>
-		<string>pass out on { tun0 ppp0 utun0 } all</string>
-	</array>
-	<key>rule.mumble.name</key>
-	<string>Mumble</string>
-	<key>rule.mumble.comment</key>
-	<string>Mumble Voicechat</string>
-	<key>rule.mumble.rules</key>
-	<array>
-		<string>pass out on { en0 en1 en2 en3 en4 } proto { udp tcp } from any to any port 64738</string>
-	</array>
-	<key>rule.sc2.name</key>
-	<string>SCII</string>
-	<key>rule.sc2.comment</key>
-	<string>Star Craft II</string>
-	<key>rule.sc2.rules</key>
-	<array>
-		<string>pass out on { en0 en1 en2 en3 en4 } proto { udp tcp } from any to any port { 443 1119 1120  3724 4000 6112 6113 6114 }</string>
-	</array>
-	<key>rule.tox.name</key>
-	<string>Tox</string>
-	<key>rule.tox.comment</key>
-	<string>Tox Video Chat (tox.im)</string>
-	<key>rule.tox.rules</key>
-	<array>
-		<string>pass out { en0 en1 en2 en3 en4 } proto { udp } from any to any port { 33445 3389 }</string>
+		<string>pass out on { tun0 ppp0 utun0 ipsec0 } all</string>
 	</array>
 </dict>
 </plist>
