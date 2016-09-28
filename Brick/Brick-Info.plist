@@ -19,7 +19,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>0.1.1</string>
+	<string>0.1.2</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.utilities</string>
 	<key>LSMinimumSystemVersion</key>
@@ -35,7 +35,7 @@
 	<key>SMPrivilegedExecutables</key>
 	<dict>
 		<key>com.funkensturm.BrickLayer</key>
-		<string>identifier "com.funkensturm.BrickLayer" and certificate leaf[subject.CN] = "halo"</string>
+		<string>identifier &quot;com.funkensturm.BrickLayer&quot; and certificate leaf[subject.CN] = &quot;halo&quot;</string>
 	</dict>
 </dict>
 </plist>
